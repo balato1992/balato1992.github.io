@@ -5,6 +5,12 @@
 
 1. Create a workspace and initial application
 
-```lang-none
-ng new my-app
-```
+    ```shell
+    ng new my-app
+    ```
+
+2. Add Angular Material
+
+    ```shell
+    ng add @angular/material
+    ```
