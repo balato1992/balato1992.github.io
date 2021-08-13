@@ -17,3 +17,4 @@
 
 3. Add global scss
 4. Add header and footer
+5. Add my own ts library
