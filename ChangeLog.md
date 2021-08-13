@@ -14,3 +14,6 @@
     ```shell
     ng add @angular/material
     ```
+
+3. Add global scss
+4. Add header and footer
