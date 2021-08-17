@@ -6,7 +6,16 @@
 
 # ChangeLog
 
-2021/08/31
+2021/08/17
+
+1. Update angular
+
+    ```shell
+    ng update @angular/core@12 @angular/cli@12
+    ng update @angular/material
+    ```
+
+2021/08/13
 
 1. Create a workspace and initial application
 
