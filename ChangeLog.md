@@ -1,4 +1,9 @@
 
+# TODO
+
+- Internationalization (i18n)
+- SEO
+
 # ChangeLog
 
 2021/08/31
