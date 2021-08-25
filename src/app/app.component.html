@@ -1,23 +1,22 @@
 <div class="vertical-flex" style="height: 100vh;">
   <mat-toolbar color="primary">
-    <button mat-flat-button color="primary" [routerLink]="'/main'">
-      Main
-    </button>
-    <button mat-flat-button color="primary" [routerLink]="'/about'">
-      About
-    </button>
-    <span class="spacer"></span>
+    <app-toolbar [showMenu]="isSidenavAvalible" (menuClickEvent)="leftSidenav.toggle()"></app-toolbar>
   </mat-toolbar>
-  <div class="vertical-flex" style="flex: 1 1 auto; overflow-y: auto;">
-    <div style="flex: 1 1 auto;">
-      <router-outlet></router-outlet>
-    </div>
-    <div class="custom-primary">
-      <div class="vertical-flex" style="margin: 22px auto; text-align: center;">
-        <div>
-          Copyright © 2021 洪晟崴(balato1992@gmail.com) All rights reserved.
+  <mat-sidenav-container class="vertical-flex" style="flex: 1 1 auto; overflow-y: auto;">
+    <mat-sidenav #leftSidenav mode="side">
+      <app-test-content></app-test-content>
+    </mat-sidenav>
+    <mat-sidenav-content style="display: flex; flex-direction: column;">
+      <div style="flex: 1 1 auto;">
+        <router-outlet></router-outlet>
+      </div>
+      <div class="custom-primary">
+        <div class="vertical-flex" style="margin: 22px auto; text-align: center;">
+          <div>
+            Copyright © 2021 洪晟崴(balato1992@gmail.com) All rights reserved.
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>
