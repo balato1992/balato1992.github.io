@@ -8,13 +8,17 @@ import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MainPageComponent } from './main-page/main-page.component';
+import { MainPageComponent } from './page-main/page-main.component';
+import { AboutPageComponent } from './page-about/page-about.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainPageComponent
+    MainPageComponent,
+    AboutPageComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

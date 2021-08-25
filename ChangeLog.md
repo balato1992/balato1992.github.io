@@ -1,10 +1,9 @@
 
-# TODO
-
-- Internationalization (i18n)
-- SEO
-
 # ChangeLog
+
+2021/08/25
+
+1. Add empty 404 page, about page and routing
 
 2021/08/17
 
