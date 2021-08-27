@@ -4,6 +4,7 @@
 2021/08/27
 
 1. Fix bug that sidenav didn't hide after redirecting and renameing some variable
+2. Implement a simple 404 page, and redirection
 
 2021/08/26
 

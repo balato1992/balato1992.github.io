@@ -9,7 +9,8 @@ const routes: Routes = [
   { path: 'main', component: MainPageComponent },
   { path: 'testnav', component: TestContentComponent },
   { path: '', redirectTo: '/main', pathMatch: 'full' },
-  { path: '**', component: PageNotFoundComponent }
+  { path: '404', component: PageNotFoundComponent },
+  { path: '**', redirectTo: '/404' }
 ];
 
 @NgModule({
