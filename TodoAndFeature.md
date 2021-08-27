@@ -1,6 +1,7 @@
 
 # TODO
 
+- sidenav - Responsive Design
 - Internationalization (i18n)
 - SEO
 
