@@ -1,6 +1,10 @@
 
 # ChangeLog
 
+2021/08/27
+
+1. Fix bug that sidenav didn't hide after redirecting
+
 2021/08/26
 
 1. Add sidenav

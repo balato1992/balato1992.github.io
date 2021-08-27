@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
-import { MatSidenav } from '@angular/material/sidenav';
-import { NavigationEnd, Router, RouterEvent } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { MatSidenav } from '@angular/material/sidenav';
 
 
 @Component({
@@ -19,13 +19,13 @@ export class AppComponent {
   constructor(private router: Router) {
     router.events.pipe(
       filter(e => e instanceof NavigationEnd)
-    ).subscribe(event => this.checkUrl(event as any));
+    ).subscribe(event => this.checkUrl(event as NavigationEnd));
   }
 
-  checkUrl(event: RouterEvent) {
-    console.log(event.url);
+  checkUrl(event: NavigationEnd) {
+    // console.log(event);
 
-    if (event.url === '/main') {
+    if (event.url === '/main' || event.urlAfterRedirects === '/main') {
       this.isSidenavAvalible = false;
       this.leftSidenav.opened = false;
     } else {
