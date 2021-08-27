@@ -14,7 +14,7 @@ export class AppComponent {
   title = 'angular-sample';
 
   @ViewChild('leftSidenav') leftSidenav!: MatSidenav;
-  isSidenavAvalible: boolean = false;
+  isSidenavVisible: boolean = false;
 
   constructor(private router: Router) {
     router.events.pipe(
@@ -25,12 +25,9 @@ export class AppComponent {
   checkUrl(event: NavigationEnd) {
     // console.log(event);
 
-    if (event.url === '/main' || event.urlAfterRedirects === '/main') {
-      this.isSidenavAvalible = false;
-      this.leftSidenav.opened = false;
-    } else {
-      this.isSidenavAvalible = true;
-      this.leftSidenav.opened = true;
-    }
+    let isSidenavVisible = event.url === '/testnav' || event.urlAfterRedirects === '/testnav';
+
+    this.isSidenavVisible = isSidenavVisible;
+    this.leftSidenav.opened = isSidenavVisible;
   }
 }

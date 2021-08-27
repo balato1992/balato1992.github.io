@@ -3,7 +3,7 @@
 
 2021/08/27
 
-1. Fix bug that sidenav didn't hide after redirecting
+1. Fix bug that sidenav didn't hide after redirecting and renameing some variable
 
 2021/08/26
 

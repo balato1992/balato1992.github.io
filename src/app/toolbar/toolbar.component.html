@@ -1,10 +1,10 @@
-<button mat-icon-button (click)="menuClick()" [@menuBtnAnimation]="showMenu ? 'show' : 'hidden'">
+<button mat-icon-button (click)="menuClick()" [@menuBtnAnimation]="isMenuBtnVisible ? 'show' : 'hidden'">
     <mat-icon>menu</mat-icon>
 </button>
 <button mat-flat-button color="primary" [routerLink]="'/main'">
     Main
 </button>
-<button mat-flat-button color="primary" [routerLink]="'/about'">
-    About
+<button mat-flat-button color="primary" [routerLink]="'/testnav'">
+    Test SideNav
 </button>
 <span class="spacer"></span>

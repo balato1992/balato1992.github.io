@@ -27,7 +27,7 @@ import { trigger, style, animate, transition, state } from '@angular/animations'
 })
 export class ToolbarComponent implements OnInit {
 
-  @Input() showMenu: boolean = false;
+  @Input() isMenuBtnVisible: boolean = false;
   @Output() menuClickEvent = new EventEmitter();
 
   constructor() { }

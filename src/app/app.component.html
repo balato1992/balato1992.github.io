@@ -1,6 +1,6 @@
 <div class="vertical-flex" style="height: 100vh;">
   <mat-toolbar color="primary">
-    <app-toolbar [showMenu]="isSidenavAvalible" (menuClickEvent)="leftSidenav.toggle()"></app-toolbar>
+    <app-toolbar [isMenuBtnVisible]="isSidenavVisible" (menuClickEvent)="leftSidenav.toggle()"></app-toolbar>
   </mat-toolbar>
   <mat-sidenav-container class="vertical-flex" style="flex: 1 1 auto; overflow-y: auto;">
     <mat-sidenav #leftSidenav mode="side">

@@ -11,7 +11,7 @@
 
 - header and footer
 - sidenav
-  - fix redirecting bug
+  - is shown only test page
 - 404
 
 - my own ts library
