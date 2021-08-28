@@ -3,7 +3,7 @@
 
 2021/08/27
 
-1. Change sidenav visibilty rulue
+1. Change sidenav visibilty's rule
 
 2021/08/27
 
