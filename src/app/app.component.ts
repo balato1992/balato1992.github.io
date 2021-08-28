@@ -19,15 +19,19 @@ export class AppComponent {
   constructor(private router: Router) {
     router.events.pipe(
       filter(e => e instanceof NavigationEnd)
-    ).subscribe(event => this.checkUrl(event as NavigationEnd));
+    ).subscribe(event => this.updateSidenavVisibilty(event as NavigationEnd));
   }
 
-  checkUrl(event: NavigationEnd) {
+  updateSidenavVisibilty(event: NavigationEnd) {
     // console.log(event);
 
-    let isSidenavVisible = event.url === '/testnav' || event.urlAfterRedirects === '/testnav';
+    let isSidenavVisible = this.getSidenavVisibilty(event.urlAfterRedirects, '/testnav');
 
     this.isSidenavVisible = isSidenavVisible;
     this.leftSidenav.opened = isSidenavVisible;
+  }
+
+  getSidenavVisibilty(url: string, prefix: string) {
+    return url === prefix || url.startsWith(prefix + '/');
   }
 }
