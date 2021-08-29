@@ -1,6 +1,10 @@
 
 # ChangeLog
 
+2021/08/29
+
+1. Change some style
+
 2021/08/27
 
 1. Change sidenav visibilty's rule

@@ -1,8 +1,8 @@
 <div class="vertical-flex" style="height: 100vh;">
-  <mat-toolbar color="primary">
+  <mat-toolbar color="primary" style="min-height: 64px;">
     <app-toolbar [isMenuBtnVisible]="isSidenavVisible" (menuClickEvent)="leftSidenav.toggle()"></app-toolbar>
   </mat-toolbar>
-  <mat-sidenav-container class="vertical-flex" style="flex: 1 1 auto; overflow-y: auto;">
+  <mat-sidenav-container style="height: calc(100% - 64px);">
     <mat-sidenav #leftSidenav mode="side">
       <app-test-content></app-test-content>
     </mat-sidenav>
@@ -10,12 +10,8 @@
       <div style="flex: 1 1 auto;">
         <router-outlet></router-outlet>
       </div>
-      <div class="custom-primary">
-        <div class="vertical-flex" style="margin: 22px auto; text-align: center;">
-          <div>
-            Copyright © 2021 洪晟崴(balato1992@gmail.com) All rights reserved.
-          </div>
-        </div>
+      <div class="custom-primary vertical-flex" style="padding: 24px; text-align: center;">
+        Copyright © 2021 洪晟崴(balato1992@gmail.com) All rights reserved.
       </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
