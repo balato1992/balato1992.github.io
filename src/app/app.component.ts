@@ -10,7 +10,6 @@ import { MatSidenav } from '@angular/material/sidenav';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  show: boolean = false;
   title = 'angular-sample';
 
   @ViewChild('leftSidenav') leftSidenav!: MatSidenav;
