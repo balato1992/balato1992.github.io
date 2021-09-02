@@ -1,6 +1,11 @@
 
 # ChangeLog
 
+2021/09/02
+
+1. Add sidenav link active color
+2. Edit some scss
+
 2021/08/29
 
 1. Change some style
