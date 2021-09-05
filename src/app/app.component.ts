@@ -4,6 +4,8 @@ import { MediaMatcher } from '@angular/cdk/layout';
 import { filter } from 'rxjs/operators';
 
 import { MatSidenav } from '@angular/material/sidenav';
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
@@ -20,9 +22,11 @@ export class AppComponent {
   private _mobileQueryListener: (e: MediaQueryListEvent) => void;
 
   constructor(
-    private router: Router,
-    private changeDetectorRef: ChangeDetectorRef,
-    media: MediaMatcher,) {
+    router: Router,
+    changeDetectorRef: ChangeDetectorRef,
+    media: MediaMatcher,
+    matIconRegistry: MatIconRegistry,
+    domSanitizer: DomSanitizer) {
 
     router.events.pipe(
       filter(e => e instanceof NavigationEnd)
@@ -31,6 +35,11 @@ export class AppComponent {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = (e: MediaQueryListEvent) => changeDetectorRef.detectChanges();
     this.mobileQuery.addEventListener('change', this._mobileQueryListener);
+
+    matIconRegistry.addSvgIcon(
+      "githubicon",
+      domSanitizer.bypassSecurityTrustResourceUrl("../assets/GitHub-white.svg")
+    );
   }
 
   ngOnDestroy(): void {
