@@ -3,7 +3,7 @@
     <app-toolbar [isMenuBtnVisible]="isSidenavVisible" (menuClickEvent)="leftSidenav.toggle()"></app-toolbar>
   </mat-toolbar>
   <mat-sidenav-container style="height: calc(100% - 64px);">
-    <mat-sidenav #leftSidenav mode="side" [mode]="mobileQuery.matches ? 'over' : 'side'" style="background-color: hsl(0 0% 95%);">
+    <mat-sidenav #leftSidenav [mode]="mobileQuery.matches ? 'over' : 'side'" style="background-color: hsl(0 0% 95%);">
       <app-sidenav></app-sidenav>
     </mat-sidenav>
     <mat-sidenav-content style="display: flex; flex-direction: column;">
