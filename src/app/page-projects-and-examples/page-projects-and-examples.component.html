@@ -1,6 +1,17 @@
-<p>page-projects-and-examples works!</p>
+<div style="padding: 12px 24px;">
 
-
-<a href="https://signalrwebpacktest.azurewebsites.net/" target="_blank">Signal R</a>
-<br>
-<a href="https://github.com/balato1992/Practice-SignalRWebPack/" target="_blank">Github</a>
+    <h2>Side Project</h2>
+    <div *ngFor="let datum of projectData">
+        <a [href]="datum.projectDemo" target="_blank">{{datum.name}}</a>
+        <a mat-icon-button color="primary" class="hover-effect" [href]="datum.githubUrl" target="_blank">
+            <mat-icon svgIcon="githubicon" style="color: black;"></mat-icon>
+        </a>
+    </div>
+    <h2>Example</h2>
+    <div *ngFor="let datum of exampleData">
+        <a [href]="datum.projectDemo" target="_blank">{{datum.name}}</a>
+        <a mat-icon-button color="primary" class="hover-effect" [href]="datum.githubUrl" target="_blank">
+            <mat-icon svgIcon="githubicon" style="color: black;"></mat-icon>
+        </a>
+    </div>
+</div>
