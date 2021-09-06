@@ -38,7 +38,7 @@ export class AppComponent {
 
     matIconRegistry.addSvgIcon(
       "githubicon",
-      domSanitizer.bypassSecurityTrustResourceUrl("../assets/GitHub-white.svg")
+      domSanitizer.bypassSecurityTrustResourceUrl("../assets/GitHub.svg")
     );
   }
 
