@@ -1,13 +1,18 @@
-<button mat-icon-button (click)="menuClick()" [@menuBtnAnimation]="isMenuBtnVisible ? 'show' : 'hidden'">
+<button mat-icon-button class="hover-effect" (click)="menuClick()"
+    [@menuBtnAnimation]="isMenuBtnVisible ? 'show' : 'hidden'">
     <mat-icon>menu</mat-icon>
 </button>
-<button mat-flat-button color="primary" [routerLink]="'/main'">
+<button mat-flat-button color="primary" class="hover-effect" [routerLink]="'/main'">
     Main
 </button>
-<button mat-flat-button color="primary" [routerLink]="'/sidenav'">
+<button mat-flat-button color="primary" class="hover-effect" [routerLink]="'/sidenav'">
     SideNav
 </button>
 <button mat-flat-button color="primary" [routerLink]="'/projects-and-examples'">
     Projects&Examples
 </button>
 <span class="spacer"></span>
+<a mat-flat-button color="primary" class="hover-effect" href="https://github.com/balato1992/p.angular-sample/">
+    <mat-icon svgIcon="githubicon" style="margin: 0 4px 3px 0;"></mat-icon>
+    GitHub
+</a>

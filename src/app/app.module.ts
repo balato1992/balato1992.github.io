@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from "@angular/common/http";
 import { AppComponent } from './app.component';
 import { MainPageComponent } from './page-main/page-main.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -31,6 +32,7 @@ import { PageProjectsAndExamplesComponent } from './page-projects-and-examples/p
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,

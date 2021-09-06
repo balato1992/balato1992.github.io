@@ -1,6 +1,11 @@
 
 # ChangeLog
 
+2021/09/05
+
+1. Add Github link
+2. Add button hover effect
+
 2021/09/02
 
 1. Add sidenav link active color
