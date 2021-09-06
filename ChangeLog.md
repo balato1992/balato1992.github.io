@@ -4,6 +4,7 @@
 2021/09/06
 
 1. Remove Github icon color then it can be changed color by style
+2. Add azure routing: web.config
 
 2021/09/05
 
