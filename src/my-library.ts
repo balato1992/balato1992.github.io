@@ -2,8 +2,9 @@
  * By 洪晟崴
  * 2021/08/31
  */
+import * as $ from "jquery";
 
-namespace myLibrary {
+export namespace myLibrary {
     // save global variable
     export class GlobalHelper {
         static rootPath: string = "/";

@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { MainPageComponent } from './page-main/page-main.component';
-import { TestContentComponent } from './test-content/test-content.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { PageProjectsAndExamplesComponent } from './page-projects-and-examples/page-projects-and-examples.component';
+import { MainPageComponent } from './pages/page-main/page-main.component';
+import { TestContentComponent } from './pages/test-content/test-content.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { PageProjectsAndExamplesComponent } from './pages/page-projects-and-examples/page-projects-and-examples.component';
 
 const routes: Routes = [
   { path: 'main', component: MainPageComponent },

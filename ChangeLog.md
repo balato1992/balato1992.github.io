@@ -6,6 +6,7 @@
 1. Remove Github icon color then it can be changed color by style
 2. Add some project link
 3. Add azure routing: web.config
+4. Move directory
 
 2021/09/05
 
