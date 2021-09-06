@@ -44,7 +44,6 @@ import { PageProjectsAndExamplesComponent } from './pages/page-projects-and-exam
     TflNgxChartsLineChartDirective,
     SidenavComponent,
     InvestmentVersusPageComponent,
-    SidenavComponent,
     PageProjectsAndExamplesComponent
   ],
   imports: [
