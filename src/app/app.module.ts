@@ -11,6 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
@@ -29,6 +30,9 @@ import { InvestmentResultComponent } from './components/investment-result/invest
 import { TflNgxChartsLineChartDirective } from './directives/tfl-ngx-charts-line-chart.directive';
 import { SidenavComponent } from './pages/sidenav/sidenav.component';
 import { InvestmentVersusPageComponent } from './pages/investment-versus-page/investment-versus-page.component';
+import { PageProjectsAndExamplesComponent } from './pages/page-projects-and-examples/page-projects-and-examples.component';
+
+
 
 @NgModule({
   declarations: [
@@ -40,6 +44,8 @@ import { InvestmentVersusPageComponent } from './pages/investment-versus-page/in
     TflNgxChartsLineChartDirective,
     SidenavComponent,
     InvestmentVersusPageComponent,
+    SidenavComponent,
+    PageProjectsAndExamplesComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +62,7 @@ import { InvestmentVersusPageComponent } from './pages/investment-versus-page/in
     MatIconModule,
     MatInputModule,
     MatListModule,
+    MatMenuModule,
     MatNativeDateModule,
     MatRadioModule,
     MatRippleModule,

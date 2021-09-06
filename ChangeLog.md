@@ -4,6 +4,10 @@
 2021/09/06
 
 1. Merge from other project
+2. Remove Github icon color then it can be changed color by style
+3. Add some project link
+4. Add azure routing: web.config
+5. Move directory
 
 2021/09/05
 
