@@ -1,6 +1,10 @@
 
 # ChangeLog
 
+2021/09/08
+
+1. Add maximumError size
+
 2021/09/06
 
 1. Remove Github icon color then it can be changed color by style
