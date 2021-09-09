@@ -1,12 +1,12 @@
 import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { MediaMatcher } from '@angular/cdk/layout';
+import { DomSanitizer } from '@angular/platform-browser';
 import { filter } from 'rxjs/operators';
 
 import { MatSidenav } from '@angular/material/sidenav';
 import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer } from '@angular/platform-browser';
-
+import { GlobalVariableService, LinkInfo } from './services/global-variable.service';
 
 @Component({
   selector: 'app-root',
@@ -17,24 +17,31 @@ export class AppComponent {
   title = 'angular-sample';
 
   @ViewChild('leftSidenav') leftSidenav!: MatSidenav;
-  isSidenavVisible: boolean = false;
-  mobileQuery: MediaQueryList;
   private _mobileQueryListener: (e: MediaQueryListEvent) => void;
+
+  get isMobile(): boolean {
+    return this.gvs.isMobile;
+  }
+  get linkInfos(): LinkInfo[] {
+    return this.gvs.LinkInfos;
+  }
 
   constructor(
     router: Router,
     changeDetectorRef: ChangeDetectorRef,
     media: MediaMatcher,
     matIconRegistry: MatIconRegistry,
-    domSanitizer: DomSanitizer) {
+    domSanitizer: DomSanitizer,
+    private gvs: GlobalVariableService) {
 
     router.events.pipe(
       filter(e => e instanceof NavigationEnd)
     ).subscribe(event => this.updateSidenavVisibilty(event as NavigationEnd));
 
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    // 20210909: detect window width
+    gvs.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = (e: MediaQueryListEvent) => changeDetectorRef.detectChanges();
-    this.mobileQuery.addEventListener('change', this._mobileQueryListener);
+    gvs.mobileQuery.addEventListener('change', this._mobileQueryListener);
 
     matIconRegistry.addSvgIcon(
       "githubicon",
@@ -43,16 +50,13 @@ export class AppComponent {
   }
 
   ngOnDestroy(): void {
-    this.mobileQuery.removeEventListener('change', this._mobileQueryListener);
+    this.gvs.mobileQuery.removeEventListener('change', this._mobileQueryListener);
   }
 
   updateSidenavVisibilty(event: NavigationEnd) {
     // console.log(event);
 
-    let isSidenavVisible = this.getSidenavVisibilty(event.urlAfterRedirects, '/sidenav');
-
-    this.isSidenavVisible = isSidenavVisible;
-    this.leftSidenav.opened = isSidenavVisible;
+    this.leftSidenav.opened = !this.isMobile && this.getSidenavVisibilty(event.urlAfterRedirects, '/sidenav');
   }
 
   getSidenavVisibilty(url: string, prefix: string) {

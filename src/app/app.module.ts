@@ -14,7 +14,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { TestContentComponent } from './pages/test-content/test-content.component';
 import { ToolbarComponent } from './pages/toolbar/toolbar.component';
-import { SidenavComponent } from './pages/sidenav/sidenav.component';
+import { SidenavLinkItemComponent } from './pages/sidenav-link-item/sidenav-link-item.component';
 
 
 
@@ -25,7 +25,7 @@ import { SidenavComponent } from './pages/sidenav/sidenav.component';
     PageNotFoundComponent,
     TestContentComponent,
     ToolbarComponent,
-    SidenavComponent
+    SidenavLinkItemComponent
   ],
   imports: [
     BrowserModule,
