@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router, UrlTree } from '@angular/router';
 
 export class LinkInfo {
   displayName: string;
@@ -34,4 +35,25 @@ export class GlobalVariableService {
   }
 
   constructor() { }
+
+  // 20210910: check if there is a linkInfo is active and has subLink
+  checkLinkActiveAndSub(linkInfos: LinkInfo[], router: Router): boolean {
+    // todo: 20210909: figure out IsActiveMatchOptions params
+
+    for (let linkInfo of linkInfos) {
+
+      let url: string | UrlTree = router.createUrlTree(linkInfo.url);
+      let isActive = router.isActive(url, {
+        matrixParams: 'subset',
+        queryParams: 'subset',
+        paths: 'subset',
+        fragment: 'exact'
+      });
+
+      if (isActive && linkInfo.subLink !== undefined) {
+        return true;
+      }
+    }
+    return false;
+  }
 }

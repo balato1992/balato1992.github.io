@@ -39,24 +39,7 @@ export class ToolbarComponent implements OnInit {
   }
 
   get isShownMenu(): boolean {
-    // todo: 20210909: figure out IsActiveMatchOptions params
-
-    let isShownMenu: boolean = false;
-    for (let linkInfo of this.linkInfos) {
-
-      let url: string | UrlTree = this.router.createUrlTree(linkInfo.url);
-      let isActive = this.router.isActive(url, {
-        matrixParams: 'subset',
-        queryParams: 'subset',
-        paths: 'subset',
-        fragment: 'exact'
-      })
-
-      if (isActive && linkInfo.subLink !== undefined) {
-        isShownMenu = true;
-      }
-    }
-    return this.isMobile || isShownMenu;
+    return this.isMobile || this.gvs.checkLinkActiveAndSub(this.linkInfos, this.router);
   }
   get displayedLinkInfos(): LinkInfo[] {
     return this.isMobile ? [] : this.linkInfos;

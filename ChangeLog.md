@@ -5,6 +5,7 @@
 
 1. sidenav and toolbar add responsive design for mobile
 2. Add title and font Lato
+3. Change logic of 'leftSidenav.opened'
 
 2021/09/08
 

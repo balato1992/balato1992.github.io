@@ -27,7 +27,7 @@ export class AppComponent {
   }
 
   constructor(
-    router: Router,
+    private router: Router,
     changeDetectorRef: ChangeDetectorRef,
     media: MediaMatcher,
     matIconRegistry: MatIconRegistry,
@@ -56,10 +56,6 @@ export class AppComponent {
   updateSidenavVisibilty(event: NavigationEnd) {
     // console.log(event);
 
-    this.leftSidenav.opened = !this.isMobile && this.getSidenavVisibilty(event.urlAfterRedirects, '/sidenav');
-  }
-
-  getSidenavVisibilty(url: string, prefix: string) {
-    return url === prefix || url.startsWith(prefix + '/');
+    this.leftSidenav.opened = !this.isMobile && this.gvs.checkLinkActiveAndSub(this.linkInfos, this.router);
   }
 }
