@@ -14,19 +14,17 @@ export class LinkInfo {
 }
 
 const LINK_DATA: LinkInfo[] = [
-  new LinkInfo("Main", ['/main']),
-  new LinkInfo("SideNav", ['/sidenav'], [
-    new LinkInfo("Page 1", ['/', 'sidenav', 'page1']),
-    new LinkInfo("Page 2", ['/', 'sidenav', 'page2']),
-    new LinkInfo("Page 3", ['/', 'sidenav', 'page3'])
+  new LinkInfo("Investment", ['/', 'investment', 'versus'], [
+    new LinkInfo("DCA versus VA", ['/', 'investment', 'versus']), //Dollar Cost Averaging, Value Averaging
+    new LinkInfo("Custom", ['/', 'investment', 'custom']),
   ]),
+  new LinkInfo("Projects&Examples", ['/projects-and-examples']),
 ];
 
 @Injectable({
   providedIn: 'root'
 })
 export class GlobalVariableService {
-
   mobileQuery!: MediaQueryList;
   LinkInfos: LinkInfo[] = LINK_DATA;
 

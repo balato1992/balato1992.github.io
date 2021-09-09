@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, ViewChild } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -13,7 +13,7 @@ import { GlobalVariableService, LinkInfo } from './services/global-variable.serv
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy {
   title = 'angular-sample';
 
   @ViewChild('leftSidenav') leftSidenav!: MatSidenav;
@@ -52,6 +52,17 @@ export class AppComponent {
   ngOnDestroy(): void {
     this.gvs.mobileQuery.removeEventListener('change', this._mobileQueryListener);
   }
+
+  ngAfterViewInit(): void {
+    // 2021/09/06: leftSidenav openedChange trigger resize to resize chart
+
+    //console.log('ngAfterViewInit');
+    this.leftSidenav.openedChange.subscribe(e => {
+      //console.log('subscribe');
+      window.dispatchEvent(new Event('resize'));
+    });
+  }
+
 
   updateSidenavVisibilty(event: NavigationEnd) {
     // console.log(event);
