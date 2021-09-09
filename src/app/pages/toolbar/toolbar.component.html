@@ -1,6 +1,10 @@
-
-<button mat-icon-button class="hover-effect" (click)="menuClick()" [@menuBtnAnimation]="isShownMenu ? 'show' : 'hidden'">
+<button mat-icon-button class="hover-effect" (click)="menuClick()"
+    [@menuBtnAnimation]="isShownMenu ? 'show' : 'hidden'">
     <mat-icon>menu</mat-icon>
+</button>
+<button mat-flat-button color="primary" class="hover-effect title-font" [routerLink]="'/'">
+    <mat-icon>cottage</mat-icon>
+    Hong Cheng-Wei
 </button>
 
 <button *ngFor="let linkInfo of displayedLinkInfos" mat-flat-button color="primary" class="hover-effect"
