@@ -22,7 +22,7 @@
 }
 
 
-// general:
+//// general
 html,
 body {
     height: 100%;
@@ -38,6 +38,19 @@ body {
     flex-direction: column;
 }
 
-button.hover-effect:hover, a.hover-effect:hover {
+button.hover-effect:hover,
+a.hover-effect:hover {
     background: rgb(255 255 255 / 10%);
+}
+
+// font
+@font-face {
+    font-family: lato;
+    src        : url('./assets/font/Lato/Lato-Italic.ttf') format("opentype");
+}
+
+.title-font {
+    font-family: lato;
+    font-size: 1em;
+    color: rgb(255, 171, 64) !important;
 }
