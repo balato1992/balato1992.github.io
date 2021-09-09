@@ -1,0 +1,11 @@
+<div *ngFor="let linkInfo of linkInfos">
+    <a *ngIf="!isHiddenLevel()" mat-list-item routerLinkActive="active-link" [routerLink]="linkInfo.url">
+        {{linkInfo.displayName}}
+    </a>
+
+    <div [style]="{'padding-left': isHiddenLevel()? '': '12px'}">
+        <app-sidenav-link-item *ngIf="linkInfo.subLink !== undefined" [linkInfos]="linkInfo.subLink"
+            [hiddenLevels]="hiddenLevels" [currentLevel]="currentLevel+1">
+        </app-sidenav-link-item>
+    </div>
+</div>

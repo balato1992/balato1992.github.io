@@ -1,6 +1,15 @@
 
 # ChangeLog
 
+2021/09/09
+
+1. sidenav and toolbar add responsive design for mobile
+2. Add title and font Lato
+
+2021/09/08
+
+1. Add maximumError size
+
 2021/09/06
 
 1. Merge from other project

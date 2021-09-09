@@ -28,9 +28,9 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { ToolbarComponent } from './pages/toolbar/toolbar.component';
 import { InvestmentResultComponent } from './components/investment-result/investment-result.component';
 import { TflNgxChartsLineChartDirective } from './directives/tfl-ngx-charts-line-chart.directive';
-import { SidenavComponent } from './pages/sidenav/sidenav.component';
 import { InvestmentVersusPageComponent } from './pages/investment-versus-page/investment-versus-page.component';
 import { PageProjectsAndExamplesComponent } from './pages/page-projects-and-examples/page-projects-and-examples.component';
+import { SidenavLinkItemComponent } from './pages/sidenav-link-item/sidenav-link-item.component';
 
 
 
@@ -42,9 +42,9 @@ import { PageProjectsAndExamplesComponent } from './pages/page-projects-and-exam
     ToolbarComponent,
     InvestmentResultComponent,
     TflNgxChartsLineChartDirective,
-    SidenavComponent,
     InvestmentVersusPageComponent,
-    PageProjectsAndExamplesComponent
+    PageProjectsAndExamplesComponent,
+    SidenavLinkItemComponent,
   ],
   imports: [
     BrowserModule,

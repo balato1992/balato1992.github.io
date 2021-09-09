@@ -1,7 +1,7 @@
 
 # TODO
 
-- sidenav - Responsive Design
+- router path can be produced by global data
 - Internationalization (i18n)
 - SEO
 
@@ -11,7 +11,8 @@
   - azure routing: web.config
 - scss
 
-- header and footer
+- header(toolbar) and footer
+  - Responsive Design
 - sidenav
   - is shown only test page
   - Responsive Design
