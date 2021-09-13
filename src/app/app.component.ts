@@ -1,17 +1,21 @@
 import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { DomSanitizer } from '@angular/platform-browser';
 import { filter } from 'rxjs/operators';
 
 import { MatSidenav } from '@angular/material/sidenav';
 import { MatIconRegistry } from '@angular/material/icon';
-import { GlobalVariableService, LinkInfo } from './services/global-variable.service';
+import { GlobalMethodsService } from './services/global-methods.service';
+import { LinkInfo } from './classes/LinkInfo';
+import { FADE_ANIMATION, LINK_INFOS } from './global-variables';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [FADE_ANIMATION]
 })
 export class AppComponent {
   title = 'angular-sample';
@@ -23,7 +27,7 @@ export class AppComponent {
     return this.gvs.isMobile;
   }
   get linkInfos(): LinkInfo[] {
-    return this.gvs.LinkInfos;
+    return LINK_INFOS;
   }
 
   constructor(
@@ -32,7 +36,7 @@ export class AppComponent {
     media: MediaMatcher,
     matIconRegistry: MatIconRegistry,
     domSanitizer: DomSanitizer,
-    private gvs: GlobalVariableService) {
+    private gvs: GlobalMethodsService) {
 
     router.events.pipe(
       filter(e => e instanceof NavigationEnd)
@@ -53,9 +57,13 @@ export class AppComponent {
     this.gvs.mobileQuery.removeEventListener('change', this._mobileQueryListener);
   }
 
+  prepareRoute(outlet: RouterOutlet) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
+  }
+
   updateSidenavVisibilty(event: NavigationEnd) {
     // console.log(event);
 
-    this.leftSidenav.opened = !this.isMobile && this.gvs.checkLinkActiveAndSub(this.linkInfos, this.router);
+    this.leftSidenav.opened = !this.isMobile && this.gvs.checkLinkActiveAndSub(this.router);
   }
 }

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { GlobalVariableService, LinkInfo } from 'src/app/services/global-variable.service';
+import { LinkInfo } from 'src/app/classes/LinkInfo';
 
 @Component({
   selector: 'app-sidenav-link-item',
