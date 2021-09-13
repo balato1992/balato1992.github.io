@@ -25,7 +25,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InvestmentPageComponent } from './pages/investment-page/investment-page.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-import { ToolbarComponent } from './pages/toolbar/toolbar.component';
 import { InvestmentResultComponent } from './components/investment-result/investment-result.component';
 import { TflNgxChartsLineChartDirective } from './directives/tfl-ngx-charts-line-chart.directive';
 import { InvestmentVersusPageComponent } from './pages/investment-versus-page/investment-versus-page.component';
@@ -39,7 +38,6 @@ import { SidenavLinkItemComponent } from './pages/sidenav-link-item/sidenav-link
     AppComponent,
     InvestmentPageComponent,
     PageNotFoundComponent,
-    ToolbarComponent,
     InvestmentResultComponent,
     TflNgxChartsLineChartDirective,
     InvestmentVersusPageComponent,

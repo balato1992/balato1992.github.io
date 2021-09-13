@@ -17,7 +17,7 @@ export class GlobalMethodsService {
   constructor() { }
 
   // 20210910: check if there is a linkInfo is active and has subLink
-  checkLinkActiveAndSub(router: Router): boolean {
+  currentRouterHasNav(router: Router): boolean {
     // todo: 20210909: figure out IsActiveMatchOptions params
 
     for (let linkInfo of LINK_INFOS) {

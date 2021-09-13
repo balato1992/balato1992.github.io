@@ -8,26 +8,33 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { MatIconRegistry } from '@angular/material/icon';
 import { GlobalMethodsService } from './services/global-methods.service';
 import { LinkInfo } from './classes/LinkInfo';
-import { FADE_ANIMATION, LINK_INFOS } from './global-variables';
+import { FADE_ANIMATION, LINK_INFOS, MENU_BTN_ANIMATION } from './global-variables';
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [FADE_ANIMATION]
+  animations: [FADE_ANIMATION, MENU_BTN_ANIMATION]
 })
 export class AppComponent implements OnDestroy {
   title = 'angular-sample';
 
   @ViewChild('leftSidenav') leftSidenav!: MatSidenav;
   private _mobileQueryListener: (e: MediaQueryListEvent) => void;
+  routerHasNav: boolean = false;
 
   get isMobile(): boolean {
     return this.gvs.isMobile;
   }
   get linkInfos(): LinkInfo[] {
     return LINK_INFOS;
+  }
+  get displayedLinkInfos(): LinkInfo[] {
+    return this.isMobile ? [] : this.linkInfos;
+  }
+  get isShownMenu(): boolean {
+    return this.isMobile || this.routerHasNav;
   }
 
   constructor(
@@ -74,6 +81,7 @@ export class AppComponent implements OnDestroy {
   updateSidenavVisibilty(event: NavigationEnd) {
     // console.log(event);
 
-    this.leftSidenav.opened = !this.isMobile && this.gvs.checkLinkActiveAndSub(this.router);
+    this.routerHasNav = this.gvs.currentRouterHasNav(this.router);
+    this.leftSidenav.opened = !this.isMobile && this.routerHasNav;
   }
 }
