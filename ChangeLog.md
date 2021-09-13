@@ -5,6 +5,7 @@
 
 1. Add route fade animation
 2. Change global-variables and add global-methods
+3. Remove toolbar component
 
 2021/09/09
 

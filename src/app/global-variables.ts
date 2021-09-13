@@ -1,5 +1,5 @@
 
-import { animate, animateChild, group, query, style, transition, trigger } from '@angular/animations';
+import { animate, animateChild, group, query, state, style, transition, trigger } from '@angular/animations';
 import { LinkInfo } from "./classes/LinkInfo";
 import { MainPageComponent } from './pages/page-main/page-main.component';
 import { TestContentComponent } from './pages/test-content/test-content.component';
@@ -38,5 +38,24 @@ export const FADE_ANIMATION =
         ], { optional: true })
       ]),
       query(':enter', animateChild(), { optional: true }),
+    ]),
+  ]);
+
+export const MENU_BTN_ANIMATION =
+  trigger(
+    'menuBtnAnimation', [
+    state('show', style({
+      width: '40px',
+      opacity: 1,
+    })),
+    state('hidden', style({
+      width: '0px',
+      opacity: 0,
+    })),
+    transition('show => hidden', [
+      animate('0.2s')
+    ]),
+    transition('hidden => show', [
+      animate('0.2s')
     ]),
   ]);
