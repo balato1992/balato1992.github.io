@@ -8,11 +8,6 @@
       <mat-icon>cottage</mat-icon>
       Hong Cheng-Wei
     </button>
-    <!--
-      <button mat-flat-button color="primary" [routerLink]="'/'">
-        Main
-      </button>
-    -->
     <button *ngFor="let linkInfo of displayedLinkInfos" mat-flat-button color="primary" class="hover-effect"
       [routerLink]="linkInfo.url">
       {{linkInfo.displayName}}
