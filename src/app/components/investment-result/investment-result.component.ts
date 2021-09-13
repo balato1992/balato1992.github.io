@@ -1,6 +1,6 @@
 import { formatNumber } from '@angular/common';
 import { Component, Inject, Input, LOCALE_ID, OnChanges, SimpleChanges } from '@angular/core';
-import { GlobalVariableService } from 'src/app/services/global-variable.service';
+import { GlobalMethodsService } from 'src/app/services/global-methods.service';
 import { InvestingDatum } from 'src/shared-class/InvestingDatum';
 import { NgxChartDatum } from 'src/shared-class/NgxChartDatum';
 
@@ -27,7 +27,7 @@ export class InvestmentResultComponent implements OnChanges {
     return this.gvs.isMobile;
   }
 
-  constructor(@Inject(LOCALE_ID) private locale: string, private gvs: GlobalVariableService) { }
+  constructor(@Inject(LOCALE_ID) private locale: string, private gvs: GlobalMethodsService) { }
 
   ngOnChanges(changes: SimpleChanges) {
     this.statistics = this.getStatistics(changes.data.currentValue);

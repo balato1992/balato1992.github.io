@@ -1,16 +1,16 @@
 
 import { animate, animateChild, group, query, style, transition, trigger } from '@angular/animations';
 import { LinkInfo } from "./classes/LinkInfo";
-import { MainPageComponent } from './pages/page-main/page-main.component';
-import { TestContentComponent } from './pages/test-content/test-content.component';
+import { InvestmentPageComponent } from './pages/investment-page/investment-page.component';
+import { InvestmentVersusPageComponent } from './pages/investment-versus-page/investment-versus-page.component';
+import { PageProjectsAndExamplesComponent } from './pages/page-projects-and-examples/page-projects-and-examples.component';
 
 export const LINK_INFOS: LinkInfo[] = [
-  new LinkInfo("Main", 'main', MainPageComponent),
-  new LinkInfo("SideNav", 'sidenav', TestContentComponent, [
-    new LinkInfo("Page 1", 'sidenav/page1', TestContentComponent),
-    new LinkInfo("Page 2", 'sidenav/page2', TestContentComponent),
-    new LinkInfo("Page 3", 'sidenav/page3', TestContentComponent)
+  new LinkInfo("Investment", 'investment/versus', InvestmentVersusPageComponent, [
+    new LinkInfo("DCA versus VA", 'investment/versus', InvestmentVersusPageComponent), //Dollar Cost Averaging, Value Averaging
+    new LinkInfo("Custom", 'investment/custom', InvestmentPageComponent),
   ]),
+  new LinkInfo("Projects&Examples", 'projects-and-examples', PageProjectsAndExamplesComponent),
 ];
 
 export const FADE_ANIMATION =
