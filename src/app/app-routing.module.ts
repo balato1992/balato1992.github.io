@@ -1,17 +1,35 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { InvestmentPageComponent } from './pages/investment-page/investment-page.component';
-import { InvestmentVersusPageComponent } from './pages/investment-versus-page/investment-versus-page.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-import { PageProjectsAndExamplesComponent } from './pages/page-projects-and-examples/page-projects-and-examples.component';
+import { LINK_INFOS } from './global-variables';
+import { LinkInfo } from './classes/LinkInfo';
+
+let animationCount = 0;
+let flatLinkInfos = function (arr: LinkInfo[]) {
+  let tmp: Routes = [];
+
+  arr.forEach((e, index) => {
+    tmp.push({
+      path: e.url,
+      component: e.component,
+      data: { animation: 'a-' + animationCount++ }
+    });
+
+    if (e.subLink !== undefined) {
+      let t = flatLinkInfos(e.subLink);
+      tmp = tmp.concat(t);
+    }
+  });
+
+  return tmp;
+}
+let tmpRoutes: Routes = flatLinkInfos(LINK_INFOS);
 
 const routes: Routes = [
-  { path: 'investment/versus', component: InvestmentVersusPageComponent },
-  { path: 'investment/custom', component: InvestmentPageComponent },
-  { path: 'projects-and-examples', component: PageProjectsAndExamplesComponent },
+  ...tmpRoutes,
   { path: '', redirectTo: '/investment/versus', pathMatch: 'full' },
-  { path: '404', component: PageNotFoundComponent },
+  { path: '404', component: PageNotFoundComponent, data: { animation: 'a-' + animationCount++ } },
   { path: '**', redirectTo: '/404' }
 ];
 

@@ -1,7 +1,9 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Router, UrlTree } from '@angular/router';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { trigger, style, animate, transition, state } from '@angular/animations';
-import { GlobalVariableService, LinkInfo } from 'src/app/services/global-variable.service';
+import { GlobalMethodsService } from 'src/app/services/global-methods.service';
+import { LinkInfo } from 'src/app/classes/LinkInfo';
+import { LINK_INFOS } from 'src/app/global-variables';
 
 @Component({
   selector: 'app-toolbar',
@@ -35,17 +37,17 @@ export class ToolbarComponent implements OnInit {
     return this.gvs.isMobile;
   }
   get linkInfos(): LinkInfo[] {
-    return this.gvs.LinkInfos;
+    return LINK_INFOS;
   }
 
   get isShownMenu(): boolean {
-    return this.isMobile || this.gvs.checkLinkActiveAndSub(this.linkInfos, this.router);
+    return this.isMobile || this.gvs.checkLinkActiveAndSub(this.router);
   }
   get displayedLinkInfos(): LinkInfo[] {
     return this.isMobile ? [] : this.linkInfos;
   }
 
-  constructor(private router: Router, private gvs: GlobalVariableService) { }
+  constructor(private router: Router, private gvs: GlobalMethodsService) { }
 
   ngOnInit(): void {
   }

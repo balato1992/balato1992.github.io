@@ -1,6 +1,11 @@
 
 # ChangeLog
 
+2021/09/13
+
+1. Add route fade animation
+2. Change global-variables and add global-methods
+
 2021/09/09
 
 1. sidenav and toolbar add responsive design for mobile
