@@ -1,78 +1,69 @@
-<div style="padding-top: 18px;">
+<mat-stepper linear #stepper (selectionChange)="stepperSelectionChange($event)">
+    <mat-step #step1 [completed]="false">
+        <form [formGroup]="step1FormGroup" (ngSubmit)="onStep1Submit()">
+            <ng-template matStepLabel>Select Data</ng-template>
+            <mat-radio-group *ngIf="resultsSet !== undefined" formControlName="step1SelectedIndex"
+                style="display: flex; flex-flow: wrap; justify-content: space-around;">
+                <div *ngFor="let results of resultsSet; let i=index;" class="radioContent">
 
-    <mat-stepper linear #stepper (selectionChange)="stepperSelectionChange($event)">
-        <mat-step #step1 [completed]="false">
-            <form [formGroup]="step1FormGroup" (ngSubmit)="onStep1Submit()">
-                <ng-template matStepLabel>Select Data</ng-template>
-                <mat-radio-group *ngIf="resultsSet !== undefined" formControlName="step1SelectedIndex"
-                    style="display: flex; flex-flow: wrap; justify-content: space-around;">
-                    <div *ngFor="let results of resultsSet; let i=index;" style="padding-top: 10px; padding-bottom: 6px; 
-                        width: calc(33.3%); height: calc(33vw * 0.6); min-width: 400px; min-height: 200px; 
-                        display: flex; flex-direction: column;">
-                        <div>
-                            <mat-radio-button color="primary" [value]="i">
-                                {{results.name}}
-                            </mat-radio-button>
-                        </div>
-                        <div style="width: 80%; height: 80%; margin: auto; border: 1px solid #ddd;">
-                            <ngx-charts-line-chart appTflNgxCLC [results]="[results]" [legend]="false">
-                            </ngx-charts-line-chart>
-                        </div>
-                    </div>
-                </mat-radio-group>
-                <div *ngIf="step1SelectedIndex.invalid &&
-                 (step1SelectedIndex.dirty || step1SelectedIndex.touched || step1Submitted)" class="alert">
-                    <div *ngIf="step1SelectedIndex.errors?.required">
-                        Please select a chart.
-                    </div>
-                </div>
-                <div>
-                    <button mat-raised-button color="primary">Next</button>
-                </div>
-            </form>
-        </mat-step>
-        <mat-step #step2 [completed]="false">
-            <form [formGroup]="s2FormGroup" (ngSubmit)="onStep2Submit()">
-                <ng-template matStepLabel>Select Range</ng-template>
-
-                <div *ngIf="step1Data !== undefined">
-                    <div>
-                        <mat-form-field appearance="fill">
-                            <mat-label>Choose a data range</mat-label>
-                            <mat-date-range-input [rangePicker]="drp" [min]="step1Data.minDate"
-                                [max]="step1Data.maxDate">
-                                <input matStartDate placeholder="Start date" formControlName="s2StartDate"
-                                    (dateChange)="dataRangeChange($event)">
-                                <input matEndDate placeholder="End date" formControlName="s2EndDate"
-                                    (dateChange)="dataRangeChange($event)">
-                            </mat-date-range-input>
-                            <mat-datepicker-toggle matSuffix [for]="drp"></mat-datepicker-toggle>
-                            <mat-date-range-picker #drp></mat-date-range-picker>
-                        </mat-form-field>
-                    </div>
-                    <div style="width: 800px; height: 300px;">
-                        <ngx-charts-line-chart appTflNgxCLC [results]="step2ViewRangeData">
+                    <mat-radio-button color="primary" [value]="i">
+                        <span #tooltip="matTooltip" [matTooltip]="results.name">
+                            {{results.name}}
+                        </span>
+                    </mat-radio-button>
+                    <div style="width: 80%; height: 80%; margin: 4px auto; border: 1px solid #ddd;">
+                        <ngx-charts-line-chart appTflNgxCLC [results]="[results]" [legend]="false">
                         </ngx-charts-line-chart>
                     </div>
-                    <div>
-                        <button mat-raised-button color="primary" matStepperPrevious>Back</button>
-                        <button mat-raised-button color="primary">Next</button>
-                    </div>
                 </div>
-            </form>
-        </mat-step>
-        <mat-step [completed]="false">
-            <ng-template matStepLabel>Step 3</ng-template>
+            </mat-radio-group>
+            <div *ngIf="step1SelectedIndex.invalid &&
+                 (step1SelectedIndex.dirty || step1SelectedIndex.touched || step1Submitted)" class="alert">
+                <div *ngIf="step1SelectedIndex.errors?.required">
+                    Please select a chart.
+                </div>
+            </div>
+            <div>
+                <button mat-raised-button color="primary">Next</button>
+            </div>
+        </form>
+    </mat-step>
+    <mat-step #step2 [completed]="false">
+        <form [formGroup]="s2FormGroup" (ngSubmit)="onStep2Submit()">
+            <ng-template matStepLabel>Select Range</ng-template>
 
-            <!--
-            <app-investment-result *ngIf="resultsOfDCA !== undefined && infoOfDCA !== undefined"
-                [title]="'Dollar-Cost Averaging'" [data]="infoOfDCA" [chartData]="resultsOfDCA"></app-investment-result>
+            <div *ngIf="step1Data !== undefined">
+                <div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Choose a data range</mat-label>
+                        <mat-date-range-input [rangePicker]="drp" [min]="step1Data.minDate" [max]="step1Data.maxDate">
+                            <input matStartDate placeholder="Start date" formControlName="s2StartDate"
+                                (dateChange)="dataRangeChange($event)">
+                            <input matEndDate placeholder="End date" formControlName="s2EndDate"
+                                (dateChange)="dataRangeChange($event)">
+                        </mat-date-range-input>
+                        <mat-datepicker-toggle matSuffix [for]="drp"></mat-datepicker-toggle>
+                        <mat-date-range-picker #drp></mat-date-range-picker>
+                    </mat-form-field>
+                </div>
+                <div style="width: 100%; height: 300px;">
+                    <ngx-charts-line-chart appTflNgxCLC [results]="step2ViewRangeData">
+                    </ngx-charts-line-chart>
+                </div>
+                <div>
+                    <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+                    <button mat-raised-button color="primary">Next</button>
+                </div>
+            </div>
+        </form>
+    </mat-step>
+    <mat-step [completed]="false">
+        <ng-template matStepLabel>Step 3</ng-template>
 
-            <app-investment-result *ngIf="resultsOfVA !== undefined && infoOfVA !== undefined" [title]="'Value Averaging'"
-                [data]="infoOfVA" [chartData]="resultsOfVA"></app-investment-result>
--->
-            <button mat-raised-button color="primary" matStepperPrevious>Back</button>
-        </mat-step>
-    </mat-stepper>
+        <div *ngIf="step3Data !== undefined">
+            <app-investment-result-and-source [serie]="step3Data"></app-investment-result-and-source>
+        </div>
 
-</div>
+        <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+    </mat-step>
+</mat-stepper>

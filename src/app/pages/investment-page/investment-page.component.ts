@@ -33,10 +33,7 @@ export class InvestmentPageComponent implements OnInit {
   step1Data!: { seriesInfo: NgxChartDatum, maxDate: Date, minDate: Date };
   step2ViewRangeData: NgxChartDatum[] | undefined = undefined;
 
-  infoOfDCA: InvestingDatum[] | undefined = undefined;
-  resultsOfDCA: NgxChartDatum[] | undefined = undefined;
-  infoOfVA: InvestingDatum[] | undefined = undefined;
-  resultsOfVA: NgxChartDatum[] | undefined = undefined;
+  step3Data!: NgxChartDatum;
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -108,12 +105,8 @@ export class InvestmentPageComponent implements OnInit {
       return;
     }
 
-    let { infoOfDCA, chartResultsOfDCA, infoOfVA, chartResultsOfVA, }
-      = this.dps.getData(this.step1Data.seriesInfo.series, this.s2StartDate.value, this.s2EndDate.value);
-    this.infoOfDCA = infoOfDCA;
-    this.resultsOfDCA = chartResultsOfDCA;
-    this.infoOfVA = infoOfVA;
-    this.resultsOfVA = chartResultsOfVA;
+    let datum: NgxChartDatum = this.getRagneData(this.step1Data.seriesInfo, this.s2StartDate.value, this.s2EndDate.value);
+    this.step3Data = datum;
 
     this.step2.completed = true;
     this.stepper.next();
@@ -125,19 +118,24 @@ export class InvestmentPageComponent implements OnInit {
 
   setStep2RagneData() {
 
-    let priceSource: NgxChartSeriesRow[] = this.step1Data.seriesInfo.series;
-    let tradeDates = this.dps.getTradeDates(this.s2StartDate.value, this.s2EndDate.value);
+    let datum: NgxChartDatum = this.getRagneData(this.step1Data.seriesInfo, this.s2StartDate.value, this.s2EndDate.value);
+    datum.name = 'Range';
 
-    let tradeInfos: TradeInfo[] = this.dps.getTradeInfo(priceSource, tradeDates);
+    this.step2ViewRangeData = [this.step1Data.seriesInfo, datum];
+  }
+
+  getRagneData(priceSource: NgxChartDatum, inputFromDate: Date, inputToDate: Date): NgxChartDatum {
+    let tradeDates = this.dps.getTradeDates(inputFromDate, inputToDate);
+
+    let tradeInfos: TradeInfo[] = this.dps.getTradeInfo(priceSource.series, tradeDates);
 
     let series: NgxChartSeriesRow[] = [];
     for (let datum of tradeInfos) {
       series.push(new NgxChartSeriesRow(datum.date, datum.price));
     }
 
-    this.step2ViewRangeData = [this.step1Data.seriesInfo, new NgxChartDatum('Range', series)];
+    return new NgxChartDatum(priceSource.name, series);
   }
-
 
 }
 

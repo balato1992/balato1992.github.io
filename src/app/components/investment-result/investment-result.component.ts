@@ -39,14 +39,14 @@ export class InvestmentResultComponent implements OnChanges {
 
     let viewData: ViewDatum[] = [ViewDatum.createHeader()];
     for (let datum of data) {
-      
+
       let vd = ViewDatum.createByInfo(
         datum,
         (value: number, digitsInfo?: string): string | undefined => {
           return formatNumber(value, _this.locale, digitsInfo);
         });
 
-        console.log(vd);
+      //console.log(vd);
 
       viewData.push(vd);
     }
@@ -131,7 +131,7 @@ class ViewDatum {
       count: formatNumber(count),
       maxMinCost: formatNumber(maxCostPerUnit, '1.0-0') + '/' + formatNumber(minCostPerUnit, '1.0-0'),
       currentValue: formatNumber(currentValue, '1.0-0'),
-      totalCost:  formatNumber(totalCost, '1.0-0'),
+      totalCost: formatNumber(totalCost, '1.0-0'),
       gain: formatNumber(gain, '1.0-0') + ' (' + formatNumber(percentageGain, '1.2-2') + '%)',
     });
   }

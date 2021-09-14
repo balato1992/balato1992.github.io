@@ -7,6 +7,8 @@
 
 # ToDo
 
+- investment page static: add date range
+- investment page: UI
 - multilanguage
 - page transition effect: fade in/fade out
 

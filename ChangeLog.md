@@ -1,6 +1,12 @@
 
 # ChangeLog
 
+2021/09/14
+
+1. Change data
+2. Create investment-result-and-source
+3. Refine investment page
+
 2021/09/13
 
 1. Add route fade animation

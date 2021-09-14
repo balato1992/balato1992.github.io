@@ -20,7 +20,7 @@ export class DataProcessingService {
     let dates: Date[] = [];
     while (toDate > fromDate) {
 
-      if (fromDate.getDate() == 6) {
+      if (fromDate.getDate() == 1) {
         dates.push(new Date(fromDate));
       }
 

@@ -19,6 +19,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,6 +31,7 @@ import { TflNgxChartsLineChartDirective } from './directives/tfl-ngx-charts-line
 import { InvestmentVersusPageComponent } from './pages/investment-versus-page/investment-versus-page.component';
 import { PageProjectsAndExamplesComponent } from './pages/page-projects-and-examples/page-projects-and-examples.component';
 import { SidenavLinkItemComponent } from './pages/sidenav-link-item/sidenav-link-item.component';
+import { InvestmentResultAndSourceComponent } from './components/investment-result-and-source/investment-result-and-source.component';
 
 
 
@@ -43,6 +45,7 @@ import { SidenavLinkItemComponent } from './pages/sidenav-link-item/sidenav-link
     InvestmentVersusPageComponent,
     PageProjectsAndExamplesComponent,
     SidenavLinkItemComponent,
+    InvestmentResultAndSourceComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,6 +71,7 @@ import { SidenavLinkItemComponent } from './pages/sidenav-link-item/sidenav-link
     MatStepperModule,
     MatTableModule,
     MatToolbarModule,
+    MatTooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

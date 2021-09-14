@@ -72,36 +72,23 @@ var CustomData = /** @class */ (function () {
             return class_1;
         }());
         var dates = this.createDate();
+        var count = 0;
         var funcInfos = [
-            new FuncInfo('Sample 1', function (x) { return 10 * x + 50; }),
-            new FuncInfo('Sample 2', function (x) { return 30 * x + 50; }),
-            new FuncInfo('Sample 3', function (x) { return -10 * x + 50; }),
-            new FuncInfo('Sample 4', function (x) { return -30 * x + 50; }),
-            new FuncInfo('Sample 5', function (x) {
-                if (x < 0.5)
-                    return 10 * x + 50;
-                else
-                    return -10 * x + 50 + 10;
-            }),
-            new FuncInfo('Sample 6', function (x) {
+            new FuncInfo('Sample ' + ++count, function (x) { return 30 * x + 50; }),
+            new FuncInfo('Sample ' + ++count, function (x) { return -30 * x + 50; }),
+            new FuncInfo('Sample ' + ++count, function (x) {
                 if (x < 0.5)
                     return 30 * x + 50;
                 else
                     return -30 * x + 50 + 30;
             }),
-            new FuncInfo('Sample 7', function (x) {
-                if (x < 0.5)
-                    return -10 * x + 50;
-                else
-                    return 10 * x + 50 - 10;
-            }),
-            new FuncInfo('Sample 8', function (x) {
+            new FuncInfo('Sample ' + ++count, function (x) {
                 if (x < 0.5)
                     return -30 * x + 50;
                 else
                     return 30 * x + 50 - 30;
             }),
-            new FuncInfo('Sample 9', function (x) {
+            new FuncInfo('Sample ' + ++count, function (x) {
                 if (x < 0.25)
                     return 50 * x + 50;
                 if (x < 0.75)
@@ -109,7 +96,7 @@ var CustomData = /** @class */ (function () {
                 else
                     return 50 * x + 50 - 50;
             }),
-            new FuncInfo('Sample 10', function (x) {
+            new FuncInfo('Sample ' + ++count, function (x) {
                 if (x < 0.25)
                     return -50 * x + 50;
                 if (x < 0.75)

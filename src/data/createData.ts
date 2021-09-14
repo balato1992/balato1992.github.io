@@ -95,35 +95,26 @@ class CustomData {
         }
 
         let dates = this.createDate();
+        let count = 0;
         let funcInfos = [
-            new FuncInfo('Sample 1', (x) => { return 10 * x + 50; }),
-            new FuncInfo('Sample 2', (x) => { return 30 * x + 50; }),
-            new FuncInfo('Sample 3', (x) => { return -10 * x + 50; }),
-            new FuncInfo('Sample 4', (x) => { return -30 * x + 50; }),
+            new FuncInfo('Sample ' + ++count, (x) => { return 30 * x + 50; }),
+            new FuncInfo('Sample ' + ++count, (x) => { return -30 * x + 50; }),
 
-            new FuncInfo('Sample 5', (x) => {
-                if (x < 0.5) return 10 * x + 50;
-                else return -10 * x + 50 + 10;
-            }),
-            new FuncInfo('Sample 6', (x) => {
+            new FuncInfo('Sample ' + ++count, (x) => {
                 if (x < 0.5) return 30 * x + 50;
                 else return -30 * x + 50 + 30;
             }),
-            new FuncInfo('Sample 7', (x) => {
-                if (x < 0.5) return -10 * x + 50;
-                else return 10 * x + 50 - 10;
-            }),
-            new FuncInfo('Sample 8', (x) => {
+            new FuncInfo('Sample ' + ++count, (x) => {
                 if (x < 0.5) return -30 * x + 50;
                 else return 30 * x + 50 - 30;
             }),
 
-            new FuncInfo('Sample 9', (x) => {
+            new FuncInfo('Sample ' + ++count, (x) => {
                 if (x < 0.25) return 50 * x + 50;
                 if (x < 0.75) return -50 * x + 50 + 25;
                 else return 50 * x + 50 - 50;
             }),
-            new FuncInfo('Sample 10', (x) => {
+            new FuncInfo('Sample ' + ++count, (x) => {
                 if (x < 0.25) return -50 * x + 50;
                 if (x < 0.75) return 50 * x + 50 - 25;
                 else return -50 * x + 50 + 50;

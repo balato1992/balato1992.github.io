@@ -4,3 +4,22 @@
     padding         : 1rem;
     margin-bottom   : 1rem;
 }
+
+.radioContent {
+    display       : flex;
+    flex-direction: column;
+    padding-top   : 10px;
+    padding-bottom: 6px;
+
+    width     : calc(33.3%);
+    height    : calc(33vw * 0.6);
+    min-width : 150px;
+    min-height: 100px;
+}
+
+// truncate radio button
+::ng-deep .mat-radio-label-content {
+    white-space  : nowrap;
+    overflow     : hidden;
+    text-overflow: ellipsis;
+}
