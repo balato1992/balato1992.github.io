@@ -1,7 +1,6 @@
 
 # TODO
 
-- router path can be produced by global data
 - Internationalization (i18n)
 - SEO
 
@@ -16,6 +15,9 @@
 - sidenav
   - is shown only test page
   - Responsive Design
-- 404
+- pages
+  - 404
+  - routes are produced by global data
+  - page transition effect: fade in/fade out
 
 - my own ts library
