@@ -1,6 +1,7 @@
 
 # TODO
 
+- footer shows when page transition animating
 - Internationalization (i18n)
 - SEO
 
