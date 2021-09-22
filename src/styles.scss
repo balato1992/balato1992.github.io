@@ -51,6 +51,14 @@ a.hover-effect:hover {
 
 .title-font {
     font-family: lato;
-    font-size: 1em;
-    color: rgb(255, 171, 64) !important;
+    font-size  : 1em;
+    color      : rgb(255, 171, 64) !important;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.icon-button {
+    padding: 0px 16px 0px 6px !important;
 }

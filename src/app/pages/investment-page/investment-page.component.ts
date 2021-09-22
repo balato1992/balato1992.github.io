@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatStep, MatStepper } from '@angular/material/stepper';
 
-import { InvestingDatum } from 'src/shared-class/InvestingDatum';
 import { NgxChartSeriesRow } from 'src/shared-class/NgxChartSeriesRow';
 import { NgxChartDatum } from 'src/shared-class/NgxChartDatum';
 import { TradeInfo } from 'src/shared-class/TradeInfo';

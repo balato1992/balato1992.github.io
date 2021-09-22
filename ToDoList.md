@@ -1,7 +1,6 @@
 
 # Feature
 
-- BUG: chart didn't resize when sidenav toggled
 - Investment
   - stepper (select source data -> select data range -> show statics)
 

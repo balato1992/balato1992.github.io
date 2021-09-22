@@ -18,7 +18,7 @@ export class DataProcessingService {
     let toDate = new Date(inputToDate);
 
     let dates: Date[] = [];
-    while (toDate > fromDate) {
+    while (toDate >= fromDate) {
 
       if (fromDate.getDate() == 1) {
         dates.push(new Date(fromDate));

@@ -1,4 +1,4 @@
-<mat-stepper linear #stepper (selectionChange)="stepperSelectionChange($event)">
+<mat-stepper linear #stepper (selectionChange)="stepperSelectionChange($event)" orientation="vertical">
     <mat-step #step1 [completed]="false">
         <form [formGroup]="step1FormGroup" (ngSubmit)="onStep1Submit()">
             <ng-template matStepLabel>Select Data</ng-template>
@@ -23,13 +23,19 @@
                     Please select a chart.
                 </div>
             </div>
-            <div>
-                <button mat-raised-button color="primary">Next</button>
+            <br>
+            <div style="display: flex;">
+                <span class="spacer"></span>
+                <button mat-flat-button color="primary" class="icon-button">
+                    <mat-icon>arrow_right</mat-icon>
+                    Next
+                </button>
             </div>
         </form>
     </mat-step>
     <mat-step #step2 [completed]="false">
         <form [formGroup]="s2FormGroup" (ngSubmit)="onStep2Submit()">
+            <br>
             <ng-template matStepLabel>Select Range</ng-template>
 
             <div *ngIf="step1Data !== undefined">
@@ -50,20 +56,33 @@
                     <ngx-charts-line-chart appTflNgxCLC [results]="step2ViewRangeData">
                     </ngx-charts-line-chart>
                 </div>
-                <div>
-                    <button mat-raised-button color="primary" matStepperPrevious>Back</button>
-                    <button mat-raised-button color="primary">Next</button>
+                <br>
+                <div style="display: flex;">
+                    <button mat-flat-button color="primary" matStepperPrevious class="icon-button">
+                        <mat-icon>arrow_left</mat-icon>
+                        Back
+                    </button>
+                    <span class="spacer"></span>
+                    <button mat-flat-button color="primary" class="icon-button">
+                        <mat-icon>arrow_right</mat-icon>
+                        Next
+                    </button>
                 </div>
             </div>
         </form>
     </mat-step>
     <mat-step [completed]="false">
-        <ng-template matStepLabel>Step 3</ng-template>
+        <ng-template matStepLabel>Result</ng-template>
 
         <div *ngIf="step3Data !== undefined">
             <app-investment-result-and-source [serie]="step3Data"></app-investment-result-and-source>
         </div>
-
-        <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+        <br>
+        <div style="display: flex;">
+            <button mat-flat-button color="primary" matStepperPrevious class="icon-button">
+                <mat-icon>arrow_left</mat-icon>
+                Back
+            </button>
+        </div>
     </mat-step>
 </mat-stepper>

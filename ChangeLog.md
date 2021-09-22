@@ -1,6 +1,11 @@
 
 # ChangeLog
 
+2021/09/22
+
+1. Change stepper style
+2. Modify investment result component
+
 2021/09/14
 
 1. Change data
