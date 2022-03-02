@@ -6,30 +6,32 @@ import { LINK_INFOS } from './global-variables';
 import { LinkInfo } from './classes/LinkInfo';
 
 let animationCount = 0;
-let flatLinkInfos = function (arr: LinkInfo[]) {
-  let tmp: Routes = [];
+const getRouteStateName = () => 'a-' + animationCount++;
 
-  arr.forEach((e, index) => {
-    tmp.push({
-      path: e.url,
-      component: e.component,
-      data: { animation: 'a-' + animationCount++ }
+let flatLinkInfos = (arr: LinkInfo[]) => {
+  let tmpRoutes: Routes = [];
+
+  arr.forEach((linkInfo, index) => {
+    tmpRoutes.push({
+      path: linkInfo.url,
+      component: linkInfo.component,
+      data: { animation: getRouteStateName() }
     });
 
-    if (e.subLink !== undefined) {
-      let t = flatLinkInfos(e.subLink);
-      tmp = tmp.concat(t);
+    if (linkInfo.subLink !== undefined) {
+      let t = flatLinkInfos(linkInfo.subLink);
+      tmpRoutes = tmpRoutes.concat(t);
     }
   });
 
-  return tmp;
+  return tmpRoutes;
 }
 let tmpRoutes: Routes = flatLinkInfos(LINK_INFOS);
 
 const routes: Routes = [
   ...tmpRoutes,
   { path: '', redirectTo: '/investment/versus', pathMatch: 'full' },
-  { path: '404', component: PageNotFoundComponent, data: { animation: 'a-' + animationCount++ } },
+  { path: '404', component: PageNotFoundComponent, data: { animation: getRouteStateName() } },
   { path: '**', redirectTo: '/404' }
 ];
 
