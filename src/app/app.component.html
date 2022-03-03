@@ -1,5 +1,5 @@
 <div class="vertical-flex" style="height: 100vh;">
-  <mat-toolbar color="primary" style="min-height: 64px;">
+  <mat-toolbar *ngIf="!hideLayout" color="primary" class="toolbar">
     <button mat-icon-button class="hover-effect" (click)="leftSidenav.toggle()"
       [@menuBtnAnimation]="isShownMenu ? 'show' : 'hidden'">
       <mat-icon>menu</mat-icon>
@@ -8,16 +8,18 @@
       <mat-icon>cottage</mat-icon>
       Hong Cheng-Wei
     </button>
-    <button *ngFor="let linkInfo of displayedLinkInfos" mat-flat-button color="primary" class="hover-effect"
-      [routerLink]="linkInfo.url">
-      {{linkInfo.displayName}}
-    </button>
+    <ng-container *ngIf="!isMobile">
+      <button *ngFor="let linkInfo of linkInfos" mat-flat-button color="primary" class="hover-effect"
+        [routerLink]="linkInfo.url">
+        {{linkInfo.displayName}}
+      </button>
+    </ng-container>
     <span class="spacer"></span>
     <a mat-icon-button color="primary" class="hover-effect" href="https://github.com/balato1992/p.angular-sample/">
       <mat-icon svgIcon="githubicon" style="color: #fff;"></mat-icon>
     </a>
   </mat-toolbar>
-  <mat-sidenav-container style="height: calc(100% - 64px);">
+  <mat-sidenav-container class="sidenav" [ngClass]="{'hide-layout': hideLayout}">
     <mat-sidenav #leftSidenav [mode]="isMobile ? 'over' : 'side'" style="background-color: hsl(0 0% 95%);">
       <mat-nav-list>
         <app-sidenav-link-item [linkInfos]="linkInfos" [hiddenLevels]="isMobile? []: [0]" [currentLevel]="0">

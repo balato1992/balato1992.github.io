@@ -1,8 +1,8 @@
 import { ChangeDetectorRef, Component, OnDestroy, ViewChild } from '@angular/core';
-import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, ParamMap, Router, RouterOutlet } from '@angular/router';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { DomSanitizer } from '@angular/platform-browser';
-import { filter } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
 
 import { MatSidenav } from '@angular/material/sidenav';
 import { MatIconRegistry } from '@angular/material/icon';
@@ -30,14 +30,14 @@ export class AppComponent implements OnDestroy {
   get linkInfos(): LinkInfo[] {
     return LINK_INFOS;
   }
-  get displayedLinkInfos(): LinkInfo[] {
-    return this.isMobile ? [] : this.linkInfos;
-  }
   get isShownMenu(): boolean {
     return this.isMobile || this.routerHasNav;
   }
 
+  hideLayout: boolean = false;
+
   constructor(
+    route: ActivatedRoute,
     private router: Router,
     changeDetectorRef: ChangeDetectorRef,
     media: MediaMatcher,
@@ -47,7 +47,16 @@ export class AppComponent implements OnDestroy {
 
     router.events.pipe(
       filter(e => e instanceof NavigationEnd)
-    ).subscribe(event => this.updateSidenavVisibilty(event as NavigationEnd));
+    ).subscribe(event => {
+
+      this.updateSidenavVisibilty(event as NavigationEnd);
+
+      route.firstChild?.paramMap.subscribe({
+        next: (params) => {
+          this.hideLayout = params.get('hideLayout') === 'hide';
+        }
+      });
+    });
 
     // 20210909: detect window width
     gvs.mobileQuery = media.matchMedia('(max-width: 600px)');
@@ -58,6 +67,7 @@ export class AppComponent implements OnDestroy {
       "githubicon",
       domSanitizer.bypassSecurityTrustResourceUrl("../assets/GitHub.svg")
     );
+
   }
 
   ngOnDestroy(): void {

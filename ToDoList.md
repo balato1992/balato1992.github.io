@@ -9,7 +9,8 @@
 - investment page static: add date range
 - investment page: UI
 - multilanguage
-- page transition effect: fade in/fade out
+- UI for /hide
+- figure out why routes matcher show log twice
 
 ## Investment - Todo
 

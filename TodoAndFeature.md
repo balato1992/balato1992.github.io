@@ -19,6 +19,7 @@
 - pages
   - 404
   - routes are produced by global data
+  - route: Add /hide can hide toolbar and sidenav
   - page transition effect: fade in/fade out
 
 - my own ts library

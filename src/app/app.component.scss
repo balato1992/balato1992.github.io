@@ -1,0 +1,11 @@
+.toolbar {
+    min-height: 64px;
+}
+
+.sidenav {
+    height: calc(100% - 64px);
+
+    &.hide-layout {
+        height: calc(100%);
+    }
+}

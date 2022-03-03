@@ -1,6 +1,10 @@
 
 # ChangeLog
 
+2022/03/03
+
+1. Add path 'hide' can hide toolbar and sidenav
+
 2021/09/22
 
 1. Change stepper style

@@ -8,7 +8,7 @@ import { PageProjectsAndExamplesComponent } from './pages/page-projects-and-exam
 export const LINK_INFOS: LinkInfo[] = [
   new LinkInfo("Investment", 'investment', InvestmentVersusPageComponent, [
     new LinkInfo("DCA versus VA", 'investment/versus', InvestmentVersusPageComponent), //Dollar Cost Averaging, Value Averaging
-    new LinkInfo("Custom", 'investment/custom', InvestmentPageComponent),
+    new LinkInfo("Custom DCA versus VA", 'investment/custom', InvestmentPageComponent),
   ]),
   new LinkInfo("Projects&Examples", 'projects-and-examples', PageProjectsAndExamplesComponent),
 ];
