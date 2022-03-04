@@ -27,8 +27,9 @@
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content style="display: flex; flex-direction: column;">
-      <div style="flex: 1 1 auto;" [@routeAnimations]="prepareRoute(outlet)">
-        <router-outlet #outlet="outlet"></router-outlet>
+      <div style="display: grid; flex: 1 1 auto; margin: 0 auto; max-width: 740px; width: 100%;"
+        [@routeAnimations]="getRouteAnimationData()">
+        <router-outlet style="display: none;"></router-outlet>
       </div>
       <div class="custom-primary vertical-flex" style="padding: 24px; text-align: center;">
         Copyright © 2021 洪晟崴(balato1992@gmail.com) All rights reserved.

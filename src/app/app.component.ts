@@ -1,11 +1,12 @@
 import { ChangeDetectorRef, Component, OnDestroy, ViewChild } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, ParamMap, Router, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, ChildrenOutletContexts, NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { DomSanitizer } from '@angular/platform-browser';
 import { filter, map } from 'rxjs/operators';
 
 import { MatSidenav } from '@angular/material/sidenav';
 import { MatIconRegistry } from '@angular/material/icon';
+
 import { GlobalMethodsService } from './services/global-methods.service';
 import { LinkInfo } from './classes/LinkInfo';
 import { FADE_ANIMATION, LINK_INFOS, MENU_BTN_ANIMATION } from './global-variables';
@@ -39,6 +40,7 @@ export class AppComponent implements OnDestroy {
   constructor(
     route: ActivatedRoute,
     private router: Router,
+    private contexts: ChildrenOutletContexts,
     changeDetectorRef: ChangeDetectorRef,
     media: MediaMatcher,
     matIconRegistry: MatIconRegistry,
@@ -67,7 +69,6 @@ export class AppComponent implements OnDestroy {
       "githubicon",
       domSanitizer.bypassSecurityTrustResourceUrl("../assets/GitHub.svg")
     );
-
   }
 
   ngOnDestroy(): void {
@@ -84,8 +85,8 @@ export class AppComponent implements OnDestroy {
     });
   }
 
-  prepareRoute(outlet: RouterOutlet) {
-    return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
+  getRouteAnimationData() {
+    return this.contexts.getContext('primary')?.route?.snapshot?.data?.['animation'];
   }
 
   updateSidenavVisibilty(event: NavigationEnd) {

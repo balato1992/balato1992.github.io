@@ -7,6 +7,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -21,6 +22,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
+import { MathjaxModule } from 'mathjax-angular';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -32,6 +35,7 @@ import { InvestmentVersusPageComponent } from './pages/investment-versus-page/in
 import { PageProjectsAndExamplesComponent } from './pages/page-projects-and-examples/page-projects-and-examples.component';
 import { SidenavLinkItemComponent } from './pages/sidenav-link-item/sidenav-link-item.component';
 import { InvestmentResultAndSourceComponent } from './components/investment-result-and-source/investment-result-and-source.component';
+import { KellyCriterionPageComponent } from './pages/kelly-criterion-page/kelly-criterion-page.component';
 
 
 
@@ -46,6 +50,7 @@ import { InvestmentResultAndSourceComponent } from './components/investment-resu
     PageProjectsAndExamplesComponent,
     SidenavLinkItemComponent,
     InvestmentResultAndSourceComponent,
+    KellyCriterionPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,6 +63,7 @@ import { InvestmentResultAndSourceComponent } from './components/investment-resu
     MatAutocompleteModule,
     MatButtonModule,
     MatDatepickerModule,
+    MatDividerModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
@@ -72,6 +78,7 @@ import { InvestmentResultAndSourceComponent } from './components/investment-resu
     MatTableModule,
     MatToolbarModule,
     MatTooltipModule,
+    MathjaxModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

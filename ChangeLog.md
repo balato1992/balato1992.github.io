@@ -1,6 +1,13 @@
 
 # ChangeLog
 
+2022/03/04
+
+1. Add Kelly criterion page
+2. Add MathjaxModule
+3. Set outlet container width
+4. Change fade parameter
+
 2022/03/03
 
 1. Add path 'hide' can hide toolbar and sidenav
