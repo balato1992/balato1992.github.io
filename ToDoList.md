@@ -1,18 +1,18 @@
 
-# Feature
-
-- Investment
-  - stepper (select source data -> select data range -> show statics)
-
 # ToDo
 
+- Internationalization (i18n)
+- SEO
+
+- footer shows when page transition animating
 - investment page static: add date range
-- investment page: UI
+- investment page: UI refinement
 - multilanguage
-- UI for /hide
+- Refine route scroll position
+- Refine UI for /hide
 - figure out why routes matcher show log twice
 
-## Investment - Todo
+## Investment
 
 - DCA versus VA
 - add input to select data range

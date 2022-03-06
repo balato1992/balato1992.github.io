@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DecimalPipe } from '@angular/common';
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -27,15 +29,16 @@ import { MathjaxModule } from 'mathjax-angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { InvestmentPageComponent } from './pages/investment-page/investment-page.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-import { InvestmentResultComponent } from './components/investment-result/investment-result.component';
-import { TflNgxChartsLineChartDirective } from './directives/tfl-ngx-charts-line-chart.directive';
 import { InvestmentVersusPageComponent } from './pages/investment-versus-page/investment-versus-page.component';
 import { PageProjectsAndExamplesComponent } from './pages/page-projects-and-examples/page-projects-and-examples.component';
 import { SidenavLinkItemComponent } from './pages/sidenav-link-item/sidenav-link-item.component';
-import { InvestmentResultAndSourceComponent } from './components/investment-result-and-source/investment-result-and-source.component';
 import { KellyCriterionPageComponent } from './pages/kelly-criterion-page/kelly-criterion-page.component';
+import { InvestmentResultComponent } from './components/investment-result/investment-result.component';
+import { InvestmentResultAndSourceComponent } from './components/investment-result-and-source/investment-result-and-source.component';
+import { TflNgxChartsLineChartDirective } from './directives/tfl-ngx-charts-line-chart.directive';
 
 
 
@@ -62,6 +65,7 @@ import { KellyCriterionPageComponent } from './pages/kelly-criterion-page/kelly-
     NgxChartsModule,
     MatAutocompleteModule,
     MatButtonModule,
+    MatCardModule,
     MatDatepickerModule,
     MatDividerModule,
     MatFormFieldModule,
@@ -80,7 +84,7 @@ import { KellyCriterionPageComponent } from './pages/kelly-criterion-page/kelly-
     MatTooltipModule,
     MathjaxModule.forRoot()
   ],
-  providers: [],
+  providers: [DecimalPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

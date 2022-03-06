@@ -1,6 +1,10 @@
 
 # ChangeLog
 
+2022/03/06
+
+1. Implement Kelly criterion page
+
 2022/03/04
 
 1. Add Kelly criterion page

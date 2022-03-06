@@ -1,43 +1,50 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DecimalPipe } from '@angular/common';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-kelly-criterion-page',
   templateUrl: './kelly-criterion-page.component.html',
+  styleUrls: ['./kelly-criterion-page.component.scss']
 })
 export class KellyCriterionPageComponent implements OnInit {
 
   kcForm: FormGroup = this.fb.group({
     probability: [50, [Validators.required, Validators.max(100), Validators.min(0)]],
     proportion: [2, [Validators.required, Validators.max(1000000), Validators.min(0)]],
-    fraction: [0],
   });
+  get probability(): AbstractControl { return this.kcForm.get('probability')!; }
+  get proportion(): AbstractControl { return this.kcForm.get('proportion')!; }
+  currentBankroll: FormControl = new FormControl(300, Validators.required);
 
-  get probability() { return this.kcForm.get('probability')!; }
-  get proportion() { return this.kcForm.get('proportion')!; }
+  result: { fraction: number, fractionJax: string } | undefined = undefined;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private decimalPipe: DecimalPipe) { }
 
-  ngOnInit(): void {
-    const p = this.kcForm.get('probability');
-    const b = this.kcForm.get('proportion');
+  ngOnInit(): void { }
 
-    if (p && b) {
-      p.valueChanges.subscribe(value => {
-        this.patchFraction(value, this.kcForm.value['proportion']);
-      });
-      b.valueChanges.subscribe(value => {
-        this.patchFraction(this.kcForm.value['probability'], value);
-      });
-    }
+  calcFraction(p: number, b: number) {
+
+    return p + (p - 1) / b;
   }
 
-  patchFraction(p: number, b: number) {
+  pipe(n: number): string {
+    return this.decimalPipe.transform(n) ?? "";
+  }
 
-    p = p / 100;
+  onSubmit() {
+    let p = this.kcForm.value['probability'] / 100;
+    let b = this.kcForm.value['proportion'];
 
-    this.kcForm.patchValue({
-      fraction: p + (p - 1) / b,
-    });
+    let fraction = this.calcFraction(p, b);
+
+    let strP = this.pipe(p);
+    let strB = this.pipe(b);
+    let strF = this.pipe(fraction);
+
+    this.result = {
+      fraction: fraction,
+      fractionJax: `$\\LARGE{ f^* = ${strP} + {${strP}-1 \\over ${strB}} = ${strF} }$`,
+    };
   }
 }

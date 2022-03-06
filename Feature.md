@@ -1,11 +1,8 @@
 
-# TODO
-
-- footer shows when page transition animating
-- Internationalization (i18n)
-- SEO
-
 # Feature
+
+- contents
+  - Kelly criterion
 
 - angular/material
   - azure routing: web.config
@@ -16,7 +13,7 @@
 - sidenav
   - is shown only test page
   - Responsive Design
-- pages
+- router/pages
   - 404
   - routes are produced by global data
   - route: Add /hide can hide toolbar and sidenav

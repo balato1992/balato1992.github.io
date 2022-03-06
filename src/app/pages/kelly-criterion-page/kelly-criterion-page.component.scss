@@ -1,0 +1,23 @@
+// reference: https://material.angular.io/components/form-field/overview
+.right-align {
+  text-align: right;
+}
+
+input.right-align::-webkit-outer-spin-button,
+input.right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.right-align {
+  -moz-appearance: textfield1;
+}
+
+////
+
+.mathjax-margin {
+  margin: 8px 16px 24px;
+}
+
+mat-card mat-form-field {
+  font-size: 1.4em;
+}

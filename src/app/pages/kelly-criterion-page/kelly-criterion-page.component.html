@@ -1,18 +1,21 @@
 <div style="padding: 12px;">
     <br>
-    <h1 class="mat-display-2">Kelly criterion</h1>
+    <h1 style="font-size: 38px; margin-bottom: 6px;">Kelly criterion</h1>
+    <div style="margin: 0 0 16px;">
+        (From <a href="https://wikipedia.org/wiki/Kelly_criterion">https://wikipedia.org/wiki/Kelly_criterion</a>)
+    </div>
 
     <p>
         In probability theory, the Kelly criterion (or Kelly strategy or Kelly bet), is a formula that determines the
         optimal theoretical size for a bet.
     </p>
 
-    <mat-divider></mat-divider>
-
+    <mat-divider style="margin: 16px 0;"></mat-divider>
     <h2>Gambling formula</h2>
-    
     <div>
-        <div [mathjax]="'$\\LARGE{ f^* = p - { q \\over b } = p + { p-1 \\over b } }$'"></div>
+        Where losing the bet involves losing the entire wager, the Kelly bet is:
+        <div class="mathjax-margin" [mathjax]="'$\\LARGE{ f^* = p - { q \\over b } = p + { p-1 \\over b } }$'"></div>
+        Where:
         <ul>
             <li [mathjax]="'$ f^* $ is the fraction of the current bankroll to wager.'"></li>
             <li [mathjax]="'$ p $ is the probability of a win.'"></li>
@@ -21,62 +24,73 @@
                 [mathjax]="'$ b $ is the proportion of the bet gained with a win. E.g. If betting \\$10 on a 2-to-1 odds bet, (upon win you are returned \\$30, winning you \\$20), then $ b = \\$20/\\$10 = 2.0 $ '">
             </li>
         </ul>
-        <div style="float: right;">(From Wikipedia)</div>
     </div>
 
+    <mat-divider style="margin: 16px 0;"></mat-divider>
     <h2>Calculator</h2>
-    <form [formGroup]="kcForm">
-        <table cellspacing="0">
-            <tr>
-                <td style="padding-right: 8px;">
-                    <mat-form-field appearance="fill">
-                        <mat-label [mathjax]="'$ p $ (Probability of a win)'"></mat-label>
+    <mat-card style="padding: 24px;">
+        <mat-card-content>
+            <form [formGroup]="kcForm" (ngSubmit)="onSubmit()">
+                <div style="display: flex; flex-wrap: wrap; gap: 12px 24px;">
+                    <mat-form-field style="flex: 1 1 auto;">
+                        <mat-label color="primary" [mathjax]="'$ p $ (Probability of a win)'"></mat-label>
                         <input matInput formControlName="probability" type="number" step="1" max="100" min="0"
-                            placeholder="Please enter value">
+                            placeholder="Please enter value" style="text-align: right;">
                         <span matSuffix>&nbsp;%</span>
                         <mat-error *ngIf="probability.hasError('max')">
-                            Please enter a valid email address
+                            Probability should be below <strong>100</strong>.
                         </mat-error>
                         <mat-error *ngIf="probability.hasError('min')">
-                            Please enter a valid email address
+                            Probability should be above <strong>0</strong>.
                         </mat-error>
                         <mat-error *ngIf="probability.hasError('required')">
                             Probability is <strong>required</strong>
                         </mat-error>
                     </mat-form-field>
-                </td>
-                <td>
-                    <mat-form-field appearance="fill">
+                    <mat-form-field style="flex: 1 1 auto;">
                         <mat-label [mathjax]="'$ b $ (Proportion of the bet gained)'"></mat-label>
                         <input matInput formControlName="proportion" type="number" step="1" max="1000000" min="0"
-                            placeholder="Please enter value">
+                            placeholder="Please enter value" style="text-align: right;">
                         <mat-error *ngIf="proportion.hasError('max')">
-                            Please enter a valid email address
+                            Proportion should be below <strong>1000000</strong>.
                         </mat-error>
                         <mat-error *ngIf="proportion.hasError('min')">
-                            Please enter a valid email address
+                            Proportion should be above <strong>0</strong>.
                         </mat-error>
                         <mat-error *ngIf="proportion.hasError('required')">
                             Proportion is <strong>required</strong>
                         </mat-error>
                     </mat-form-field>
-                </td>
-            </tr>
-        </table>
+                </div>
+                <button mat-flat-button color="primary" type="submit" [disabled]="!kcForm.valid"
+                    style="width: 100%;">Calculate</button>
+            </form>
+        </mat-card-content>
+
+        <ng-container *ngIf="result != undefined">
+            <mat-divider inset style="margin: 16px 0;"></mat-divider>
+            <mat-card-content>
+
+                <p>
+                    Fraction of the current bankroll to wager:
+                </p>
+                <div class="mathjax-margin" [mathjax]="result.fractionJax"></div>
+
+                <mat-form-field>
+                    <mat-label>Current Bankroll</mat-label>
+                    <span matPrefix>$&nbsp;</span>
+                    <input matInput [formControl]="currentBankroll" type="number" step="1" max="1000000" min="0"
+                        placeholder="Please enter value">
+                </mat-form-field>
+                * <strong>{{ result.fraction*100 | number }}%</strong>
+
+                = ${{ currentBankroll.value*result.fraction | number }}
+
+            </mat-card-content>
+        </ng-container>
+    </mat-card>
 
 
-        <div>
-            Fraction of the current bankroll to wager:
-            <strong>{{ kcForm.value.fraction | number }}</strong>
-        </div>
-    </form>
-    <div style="overflow: auto; height: 400px;">
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    </div>
     <!--
     <p>Form Value: {{ kcForm.value | json }}</p>
     <p>Form Status: {{ kcForm.status }}</p>
