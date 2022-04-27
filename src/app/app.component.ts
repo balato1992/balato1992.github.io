@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, OnDestroy, ViewChild } from '@angular/core';
-import { ActivatedRoute, ChildrenOutletContexts, NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, ChildrenOutletContexts, NavigationEnd, Router } from '@angular/router';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { DomSanitizer } from '@angular/platform-browser';
 import { filter, map } from 'rxjs/operators';
@@ -22,6 +22,8 @@ export class AppComponent implements OnDestroy {
   title = 'angular-sample';
 
   @ViewChild('leftSidenav') leftSidenav!: MatSidenav;
+  @ViewChild('container') navContainer!: any;
+
   private _mobileQueryListener: (e: MediaQueryListEvent) => void;
   routerHasNav: boolean = false;
 
@@ -47,18 +49,7 @@ export class AppComponent implements OnDestroy {
     domSanitizer: DomSanitizer,
     private gvs: GlobalMethodsService) {
 
-    router.events.pipe(
-      filter(e => e instanceof NavigationEnd)
-    ).subscribe(event => {
-
-      this.updateSidenavVisibilty(event as NavigationEnd);
-
-      route.firstChild?.paramMap.subscribe({
-        next: (params) => {
-          this.hideLayout = params.get('hideLayout') === 'hide';
-        }
-      });
-    });
+    this.initializeEvents(router, route);
 
     // 20210909: detect window width
     gvs.mobileQuery = media.matchMedia('(max-width: 600px)');
@@ -85,6 +76,27 @@ export class AppComponent implements OnDestroy {
     });
   }
 
+  initializeEvents(router: Router, route: ActivatedRoute) {
+
+    let navEnd$ = router.events.pipe(
+      filter(e => e instanceof NavigationEnd),
+      map(e => e as NavigationEnd),
+    );
+    navEnd$.subscribe(event => {
+      //console.log("--NavigationEnd");
+      this.scrollToTop();
+
+      this.updateSidenavVisibilty(event);
+
+      // check if url has '/hide'
+      route.firstChild?.paramMap.subscribe({
+        next: (params) => {
+          this.hideLayout = params.get('hideLayout') === 'hide';
+        }
+      });
+    });
+  }
+
   getRouteAnimationData() {
     return this.contexts.getContext('primary')?.route?.snapshot?.data?.['animation'];
   }
@@ -94,5 +106,13 @@ export class AppComponent implements OnDestroy {
 
     this.routerHasNav = this.gvs.currentRouterHasNav(this.router);
     this.leftSidenav.opened = !this.isMobile && this.routerHasNav;
+  }
+
+  scrollToTop() {
+    this.navContainer.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
   }
 }

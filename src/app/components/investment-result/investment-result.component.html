@@ -2,8 +2,9 @@
     <div style="display: flex; flex-wrap: wrap;">
         <div *ngFor="let datum of data" [class]="[(isMobile?'width100':'width50')]">
             <h2>{{datum.title}}</h2>
-            <div style="height: 300px;">
-                <ngx-charts-line-chart appTflNgxCLC [results]="datum.chartResults" [legend]="false">
+            <div style="height: 300px;" #ContainerRef>
+                <ngx-charts-line-chart appTflNgxCLC [view]="[ContainerRef.offsetWidth, ContainerRef.offsetHeight]"
+                    [results]="datum.chartResults" [legend]="false">
                 </ngx-charts-line-chart>
             </div>
         </div>

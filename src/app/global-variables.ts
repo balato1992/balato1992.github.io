@@ -16,6 +16,7 @@ export const LINK_INFOS: LinkInfo[] = [
   new LinkInfo("Projects&Examples", 'projects-and-examples', PageProjectsAndExamplesComponent),
 ];
 
+
 export const FADE_ANIMATION =
   trigger('routeAnimations', [
     transition('* <=> *', [
@@ -25,17 +26,18 @@ export const FADE_ANIMATION =
           style({
             'grid-column-start': 1,
             'grid-row-start': 1,
+            'transition': '1s',
           })
         ], { optional: true }),
       ]),
       query(':enter', [
-        style({ opacity: 0 })
+        style({ opacity: 0, height: '30vh', overflow: 'hidden', })
       ], { optional: true }),
       query(':leave', [
-        animate('300ms ease-out', style({ opacity: 0 }))
+        animate('300ms ease-out', style({ opacity: 0, height: '0px', }))
       ], { optional: true }),
       query(':enter', [
-        animate('500ms ease-out', style({ opacity: 1 }))
+        animate('500ms ease-out', style({ opacity: 1, height: '*', }))
       ], { optional: true }),
     ]),
   ]);

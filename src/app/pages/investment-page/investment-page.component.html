@@ -11,8 +11,10 @@
                             {{results.name}}
                         </span>
                     </mat-radio-button>
-                    <div style="width: 80%; height: 80%; margin: 4px auto; border: 1px solid #ddd;">
-                        <ngx-charts-line-chart appTflNgxCLC [results]="[results]" [legend]="false">
+                    <div style="width: 80%; height: 80%; margin: 4px auto; border: 1px solid #ddd;" #ContainerRef1>
+                        <ngx-charts-line-chart appTflNgxCLC
+                            [view]="[ContainerRef1.offsetWidth, ContainerRef1.offsetHeight]" [results]="[results]"
+                            [legend]="false">
                         </ngx-charts-line-chart>
                     </div>
                 </div>
@@ -52,8 +54,9 @@
                         <mat-date-range-picker #drp></mat-date-range-picker>
                     </mat-form-field>
                 </div>
-                <div style="width: 100%; height: 300px;">
-                    <ngx-charts-line-chart appTflNgxCLC [results]="step2ViewRangeData">
+                <div style="width: 100%; height: 300px;" #ContainerRef2>
+                    <ngx-charts-line-chart appTflNgxCLC [view]="[ContainerRef2.offsetWidth, ContainerRef2.offsetHeight]"
+                        [results]="step2ViewRangeData">
                     </ngx-charts-line-chart>
                 </div>
                 <br>

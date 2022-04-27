@@ -22,7 +22,7 @@
 }
 
 
-//// general
+/*#region general*/
 html,
 body {
     height: 100%;
@@ -42,12 +42,14 @@ button.hover-effect:hover,
 a.hover-effect:hover {
     background: rgb(255 255 255 / 10%);
 }
+/*#endregion*/
 
-// font
+/* #region font */
 @font-face {
     font-family: lato;
     src        : url('./assets/font/Lato/Lato-Italic.ttf') format("opentype");
 }
+/*#endregion*/
 
 .title-font {
     font-family: lato;
@@ -61,4 +63,10 @@ a.hover-effect:hover {
 
 .icon-button {
     padding: 0px 16px 0px 6px !important;
+}
+
+.inner-content {
+    padding: 12px;
+    margin: 0 auto;
+    max-width: 740px;
 }

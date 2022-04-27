@@ -1,6 +1,12 @@
 
 # ChangeLog
 
+2022/04/27
+
+1. Router: Add Scroll to top
+2. Router: width style move into separate component
+3. Router: add height changed animation
+
 2022/03/06
 
 1. Implement Kelly criterion page

@@ -26,9 +26,9 @@
         </app-sidenav-link-item>
       </mat-nav-list>
     </mat-sidenav>
-    <mat-sidenav-content style="display: flex; flex-direction: column;">
-      <div style="display: grid; flex: 1 1 auto; margin: 0 auto; max-width: 740px; width: 100%;"
-        [@routeAnimations]="getRouteAnimationData()">
+    <mat-sidenav-content style="display: flex; flex-direction: column;" #container>
+
+      <div style="display: grid; flex: 1 1 auto; width: 100%;" [@routeAnimations]="getRouteAnimationData()">
         <router-outlet style="display: none;"></router-outlet>
       </div>
       <div class="custom-primary vertical-flex" style="padding: 24px; text-align: center;">

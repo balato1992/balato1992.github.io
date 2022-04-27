@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes, UrlSegment } from '@angular/router';
 
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { InvestmentPageComponent } from './pages/investment-page/investment-page.component';
 import { LINK_INFOS } from './global-variables';
 import { LinkInfo } from './classes/LinkInfo';
 
@@ -12,10 +13,13 @@ let flatLinkInfos = (arr: LinkInfo[]) => {
   let rtnRoutes: Routes = [];
 
   arr.forEach((linkInfo, index) => {
+
     rtnRoutes.push({
       path: linkInfo.url,
       component: linkInfo.component,
-      data: { animation: getRouteStateName() }
+      data: {
+        animation: getRouteStateName()
+      },
     });
 
     if (linkInfo.subLink !== undefined) {
