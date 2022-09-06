@@ -36,11 +36,12 @@ import { InvestmentVersusPageComponent } from './pages/investment-versus-page/in
 import { PageProjectsAndExamplesComponent } from './pages/page-projects-and-examples/page-projects-and-examples.component';
 import { SidenavLinkItemComponent } from './pages/sidenav-link-item/sidenav-link-item.component';
 import { KellyCriterionPageComponent } from './pages/kelly-criterion-page/kelly-criterion-page.component';
+import { ToolsPageComponent } from './pages/tools-page/tools-page.component';
+
 import { InvestmentResultComponent } from './components/investment-result/investment-result.component';
 import { InvestmentResultAndSourceComponent } from './components/investment-result-and-source/investment-result-and-source.component';
 import { TflNgxChartsLineChartDirective } from './directives/tfl-ngx-charts-line-chart.directive';
-
-
+import { AboutComponent } from './pages/about/about.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,8 @@ import { TflNgxChartsLineChartDirective } from './directives/tfl-ngx-charts-line
     SidenavLinkItemComponent,
     InvestmentResultAndSourceComponent,
     KellyCriterionPageComponent,
+    ToolsPageComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

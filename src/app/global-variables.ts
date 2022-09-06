@@ -1,18 +1,22 @@
 
-import { animate, animateChild, group, query, state, style, transition, trigger } from '@angular/animations';
+import { animate, group, query, state, style, transition, trigger } from '@angular/animations';
 import { LinkInfo } from "./classes/LinkInfo";
 
 import { InvestmentPageComponent } from './pages/investment-page/investment-page.component';
 import { InvestmentVersusPageComponent } from './pages/investment-versus-page/investment-versus-page.component';
 import { PageProjectsAndExamplesComponent } from './pages/page-projects-and-examples/page-projects-and-examples.component';
 import { KellyCriterionPageComponent } from './pages/kelly-criterion-page/kelly-criterion-page.component';
+import { AboutComponent } from './pages/about/about.component';
 
 export const LINK_INFOS: LinkInfo[] = [
+
   new LinkInfo("Investment", 'investment', InvestmentVersusPageComponent, [
     new LinkInfo("DCA versus VA", 'investment/versus', InvestmentVersusPageComponent), //Dollar Cost Averaging, Value Averaging
     new LinkInfo("Custom DCA versus VA", 'investment/custom', InvestmentPageComponent),
     new LinkInfo("Kelly Criterion", 'investment/kelly-criterion', KellyCriterionPageComponent),
   ]),
+  
+  new LinkInfo("About", 'about', AboutComponent),
   new LinkInfo("Projects&Examples", 'projects-and-examples', PageProjectsAndExamplesComponent),
 ];
 
