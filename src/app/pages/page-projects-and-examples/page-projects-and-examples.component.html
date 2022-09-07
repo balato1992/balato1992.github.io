@@ -2,15 +2,15 @@
     <h1 style="font-size: 32px; padding-top: 12px;"> Projects & Examples </h1>
     <h2>Side Project</h2>
     <div *ngFor="let datum of projectData">
-        <a [href]="datum.projectDemo" target="_blank">{{datum.name}}</a>
-        <a mat-icon-button color="primary" class="hover-effect" [href]="datum.githubUrl" target="_blank">
+        <a [attr.href]="datum.projectDemo ? datum.projectDemo : null" target="_blank">{{datum.name}}</a>
+        <a mat-icon-button color="primary" class="hover-effect" [attr.href]="datum.githubUrl ? datum.githubUrl : null" target="_blank">
             <mat-icon svgIcon="githubicon" style="color: black;"></mat-icon>
         </a>
     </div>
     <h2>Example</h2>
     <div *ngFor="let datum of exampleData">
-        <a [href]="datum.projectDemo" target="_blank">{{datum.name}}</a>
-        <a mat-icon-button color="primary" class="hover-effect" [href]="datum.githubUrl" target="_blank">
+        <a [attr.href]="datum.projectDemo ? datum.projectDemo : null" target="_blank">{{datum.name}}</a>
+        <a mat-icon-button color="primary" class="hover-effect" [attr.href]="datum.githubUrl ? datum.githubUrl : null" target="_blank">
             <mat-icon svgIcon="githubicon" style="color: black;"></mat-icon>
         </a>
     </div>

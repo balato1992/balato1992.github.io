@@ -7,15 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageProjectsAndExamplesComponent implements OnInit {
 
-  projectData: urlInfo[] = [/*new urlInfo(
-    'product-and-receipt',
-    'https://product-and-receipt-app.azurewebsites.net',
-    'https://github.com/balato1992/product-and-receipt'
-  ),*/ new urlInfo(
+  projectData: urlInfo[] = [new urlInfo(
+    'ngx-your-vocabulary-book ',
+    'https://your-vocabulary-book.azurewebsites.net/',
+    'https://github.com/balato1992/ngx-your-vocabulary-book '
+  ), new urlInfo(
+    'product-and-receipt ',
+    '', // https://time-management-tools.azurewebsites.net
+    'https://github.com/balato1992/product-and-receipt '
+  ), /*new urlInfo(
     'time-management-tools',
     'https://time-management-tools.azurewebsites.net',
     'https://github.com/balato1992/time-management-tools'
-  )];
+  )*/];
+
   exampleData: urlInfo[] = [new urlInfo(
     'Signal R Example',
     'https://signalrwebpacktest.azurewebsites.net',
