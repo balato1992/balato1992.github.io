@@ -9,14 +9,12 @@ import { KellyCriterionPageComponent } from './pages/kelly-criterion-page/kelly-
 import { AboutComponent } from './pages/about/about.component';
 
 export const LINK_INFOS: LinkInfo[] = [
-
+  new LinkInfo("About", 'about', AboutComponent),
   new LinkInfo("Investment", 'investment', InvestmentVersusPageComponent, [
     new LinkInfo("DCA versus VA", 'investment/versus', InvestmentVersusPageComponent), //Dollar Cost Averaging, Value Averaging
     new LinkInfo("Custom DCA versus VA", 'investment/custom', InvestmentPageComponent),
     new LinkInfo("Kelly Criterion", 'investment/kelly-criterion', KellyCriterionPageComponent),
   ]),
-  
-  new LinkInfo("About", 'about', AboutComponent),
   new LinkInfo("Projects&Examples", 'projects-and-examples', PageProjectsAndExamplesComponent),
 ];
 
