@@ -37,6 +37,7 @@ import { PageProjectsAndExamplesComponent } from './pages/page-projects-and-exam
 import { SidenavLinkItemComponent } from './pages/sidenav-link-item/sidenav-link-item.component';
 import { KellyCriterionPageComponent } from './pages/kelly-criterion-page/kelly-criterion-page.component';
 import { ToolsPageComponent } from './pages/tools-page/tools-page.component';
+import { DiagramPageComponent } from './pages/diagram-page/diagram-page.component';
 
 import { InvestmentResultComponent } from './components/investment-result/investment-result.component';
 import { InvestmentResultAndSourceComponent } from './components/investment-result-and-source/investment-result-and-source.component';
@@ -56,6 +57,7 @@ import { AboutComponent } from './pages/about/about.component';
     InvestmentResultAndSourceComponent,
     KellyCriterionPageComponent,
     ToolsPageComponent,
+    DiagramPageComponent,
     AboutComponent,
   ],
   imports: [

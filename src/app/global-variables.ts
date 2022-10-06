@@ -7,9 +7,11 @@ import { InvestmentVersusPageComponent } from './pages/investment-versus-page/in
 import { PageProjectsAndExamplesComponent } from './pages/page-projects-and-examples/page-projects-and-examples.component';
 import { KellyCriterionPageComponent } from './pages/kelly-criterion-page/kelly-criterion-page.component';
 import { AboutComponent } from './pages/about/about.component';
+import { DiagramPageComponent } from './pages/diagram-page/diagram-page.component';
 
 export const LINK_INFOS: LinkInfo[] = [
   new LinkInfo("About", 'about', AboutComponent),
+  new LinkInfo("Diagram", 'diagram', DiagramPageComponent),
   new LinkInfo("Investment", 'investment', InvestmentVersusPageComponent, [
     new LinkInfo("DCA versus VA", 'investment/versus', InvestmentVersusPageComponent), //Dollar Cost Averaging, Value Averaging
     new LinkInfo("Custom DCA versus VA", 'investment/custom', InvestmentPageComponent),
