@@ -33,7 +33,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InvestmentPageComponent } from './pages/investment-page/investment-page.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { InvestmentVersusPageComponent } from './pages/investment-versus-page/investment-versus-page.component';
-import { PageProjectsAndExamplesComponent } from './pages/page-projects-and-examples/page-projects-and-examples.component';
+import { PreviewPageComponent } from './pages/preview-page/preview-page.component';
 import { SidenavLinkItemComponent } from './pages/sidenav-link-item/sidenav-link-item.component';
 import { KellyCriterionPageComponent } from './pages/kelly-criterion-page/kelly-criterion-page.component';
 import { ToolsPageComponent } from './pages/tools-page/tools-page.component';
@@ -52,7 +52,7 @@ import { AboutComponent } from './pages/about/about.component';
     InvestmentResultComponent,
     TflNgxChartsLineChartDirective,
     InvestmentVersusPageComponent,
-    PageProjectsAndExamplesComponent,
+    PreviewPageComponent,
     SidenavLinkItemComponent,
     InvestmentResultAndSourceComponent,
     KellyCriterionPageComponent,

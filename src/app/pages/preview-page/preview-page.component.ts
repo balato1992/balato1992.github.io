@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-page-projects-and-examples',
-  templateUrl: './page-projects-and-examples.component.html',
-  styleUrls: ['./page-projects-and-examples.component.scss']
+  selector: 'app-preview-page',
+  templateUrl: './preview-page.component.html',
+  styleUrls: ['./preview-page.component.scss']
 })
-export class PageProjectsAndExamplesComponent implements OnInit {
+export class PreviewPageComponent implements OnInit {
 
   projectData: urlInfo[] = [new urlInfo(
     'ngx-your-vocabulary-book ',
