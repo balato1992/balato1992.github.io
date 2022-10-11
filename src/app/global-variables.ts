@@ -4,7 +4,7 @@ import { LinkInfo } from "./classes/LinkInfo";
 
 import { InvestmentPageComponent } from './pages/investment-page/investment-page.component';
 import { InvestmentVersusPageComponent } from './pages/investment-versus-page/investment-versus-page.component';
-import { PageProjectsAndExamplesComponent } from './pages/page-projects-and-examples/page-projects-and-examples.component';
+import { PreviewPageComponent } from './pages/preview-page/preview-page.component';
 import { KellyCriterionPageComponent } from './pages/kelly-criterion-page/kelly-criterion-page.component';
 import { AboutComponent } from './pages/about/about.component';
 import { DiagramPageComponent } from './pages/diagram-page/diagram-page.component';
@@ -12,7 +12,7 @@ import { DiagramPageComponent } from './pages/diagram-page/diagram-page.componen
 export const LINK_INFOS: LinkInfo[] = [
   new LinkInfo("About", 'about', AboutComponent),
   new LinkInfo("Diagram", 'diagram', DiagramPageComponent),
-  new LinkInfo("Side projects preview", 'projects-and-examples', PageProjectsAndExamplesComponent),
+  new LinkInfo("Side projects preview", 'preview', PreviewPageComponent),
   new LinkInfo("Tools", 'investment', InvestmentVersusPageComponent, [
     new LinkInfo("DCA versus VA", 'investment/versus', InvestmentVersusPageComponent), //Dollar Cost Averaging, Value Averaging
     new LinkInfo("Custom DCA versus VA", 'investment/custom', InvestmentPageComponent),

@@ -1,10 +1,18 @@
-<div class="inner-content-full">
-    <h2 style="font-size: 32px;">Side Projects</h2>
+<div class="inner-content">
+    <h2 style="font-size: 32px; padding-top: 12px;">Side Projects</h2>
 
-    <div style="display: flex; justify-content: center;">
-        <div>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <div class="img-div" id="product-and-receipt">
+            <div class="msg">
+                協助電子化 公司資料/產品/收據
+            </div>
             <div>
-                筆記網站，使用 google 登入，並以 mongodb 記錄帳號資訊與筆記資料，可用 google Speech API 播放筆記
+                <img [src]="'./assets/imgs/product-and-receipt.png'" class="img-shadow">
+            </div>
+        </div>
+        <div class="img-div">
+            <div class="msg">
+                單字筆記網站，使用 google OAuth 登入，並以 mongodb 記錄帳號資訊與筆記資料，可用 google Speech API 播放筆記
             </div>
             <div>
                 <img [src]="'./assets/imgs/vocabulary.png'" class="img-shadow">
