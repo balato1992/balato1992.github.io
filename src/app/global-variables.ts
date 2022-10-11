@@ -12,12 +12,12 @@ import { DiagramPageComponent } from './pages/diagram-page/diagram-page.componen
 export const LINK_INFOS: LinkInfo[] = [
   new LinkInfo("About", 'about', AboutComponent),
   new LinkInfo("Diagram", 'diagram', DiagramPageComponent),
-  new LinkInfo("Investment", 'investment', InvestmentVersusPageComponent, [
+  new LinkInfo("Side projects preview", 'projects-and-examples', PageProjectsAndExamplesComponent),
+  new LinkInfo("Tools", 'investment', InvestmentVersusPageComponent, [
     new LinkInfo("DCA versus VA", 'investment/versus', InvestmentVersusPageComponent), //Dollar Cost Averaging, Value Averaging
     new LinkInfo("Custom DCA versus VA", 'investment/custom', InvestmentPageComponent),
     new LinkInfo("Kelly Criterion", 'investment/kelly-criterion', KellyCriterionPageComponent),
   ]),
-  //new LinkInfo("Projects&Examples", 'projects-and-examples', PageProjectsAndExamplesComponent),
 ];
 
 

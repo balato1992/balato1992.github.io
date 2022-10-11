@@ -3,32 +3,38 @@
     <div>
         <h2 style="padding-top: 12px;">關於</h2>
         <div class="content">
-            <div style="font-size: 32px; line-height: initial;">
-                洪晟崴
-            </div>
             <div>
-                軟體工程師
-            </div>
-            <div>
-                <a href="mailto:balato1992@gmail.com" target="_blank">balato1992@gmail.com</a>
-            </div>
+                <div style="font-size: 32px; line-height: initial;">
+                    洪晟崴
+                </div>
 
-            <ul>
-                <li><a href="https://github.com/balato1992/">Github</a></li>
-                <li><a href="https://www.cakeresume.com/me/HongChengWei/">CakeResume</a></li>
-                <li><a href="https://leetcode.com/HongChengWei/">LeetCode</a></li>
-            </ul>
+                <div style="margin: 1rem 0; ">
+                    擁有五年工作經驗，曾在智慧製造產業擔任<b>軟體工程師</b>，
+                    實作中控台、資料處理系統的<b>前端</b>，並主要設計與實作<b>後端整合</b>，
+                    對系統設計有基本概念，前後端皆有實作能力，不設限自己使用的程式語言，
+                    會去<b>溝通、理解需求</b>，若有人渴了，不一定要掘井，或許當下給他一瓶礦泉水，就能滿足需求。
+                </div>
+
+                <!--
+                <ul>
+                    <li><a href="https://github.com/balato1992/">Github</a></li>
+                    <li><a href="https://www.cakeresume.com/me/HongChengWei/">CakeResume</a></li>
+                    <li><a href="https://leetcode.com/HongChengWei/">LeetCode</a></li>
+                </ul>
+                -->
+
+                <div>
+                    軟體工程師
+                </div>
+                <div>
+                    <a href="mailto:balato1992@gmail.com" target="_blank">balato1992@gmail.com</a>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- linkedin -->
     <!-- 語文能力 英文：中等 -->
-    <!-- 
-        經過四年多的工作經驗 讓我知道 
-        除了專業之外
-        也包含了團隊溝通 人際 團隊合作
-        若使用者渴了，不是掘井而已給他一瓶礦泉水
-    -->
 
 
     <div>
@@ -81,6 +87,7 @@
                     <ul>
                         <li>利用 UML 簡化程式架構、流程</li>
                         <li>基本多執行緒處理</li>
+                        <li>WebAPI</li>
                         <li>熟悉使用網路資源與文件查找並解決問題</li>
                         <!--<li>善於整合或重構程式碼，降低耦合、增加可讀性</li>-->
                         <!--<li>整合資料處理的系統</li>-->
@@ -112,21 +119,32 @@
         </ul>
     </div>
     -->
+    <!--
+        筆記
+        <ul>
+            <li>angular</li>
+            <li>mongodb</li>
+            <li>google 登入</li>
+            <li>google 發音</li>
+        </ul>
+        蒙地卡羅
+        tic tac toe
+    -->
 
     <div>
         <h2>經歷/學歷</h2>
         <div class="content">
             <div>
                 <div class="exp-title">
-                    <div class="title">合夥/軟體工程師</div>
+                    <div class="title">軟體工程師/合夥</div>
                     <div>零貳遊戲有限公司</div>
                     <div>2022/03~</div>
                 </div>
                 <div class="exp-content">
                     遊戲開發
                     <ul>
-                        <li>系統設計、實作</li>
                         <li>Unity</li>
+                        <li>系統原型開發 (2D, 迷宮, 自動戰鬥)</li>
                     </ul>
                 </div>
             </div>
@@ -139,44 +157,51 @@
                 <div class="exp-content">
                     <div>
                         中控台
+                        <!-- 設定、顯示工具機資料，判斷目前流程/狀態，執行動作/設定工具機資料 -->
                         <ul>
-                            <li>整合軟體外部5組以上硬體</li>
-                            <li>資料、功能流程管理</li>
-                            <li>多執行續處理運算與資料</li>
-                            <li>獨立實作介面 (即時資訊、各項設定)</li>
-                            <li>自製Logger</li>
                             <li>C#/WPF</li>
-                            <!-- <li>整合韌體</li> -->
+                            <li>整合軟體外部5組以上硬體</li>
+                            <li>利用設計模式記錄與韌體溝通之所有訊息，方便釐清問題所在</li>
+                            <li>自製Logger與讀取器，呈現客製訊息、過濾條件</li>
+                            <li>資料、功能流程管理</li>
+                            <li>設計變數池來統整資料同步、觸發等問題</li>
+                            <li>多執行續處理相關運算與資料同步</li>
+                            <li>獨立實作介面 (即時資訊、各項設定)</li>
+                            <!-- <li>Memory Leak</li> -->
+                        </ul>
+                    </div>
+                    <div>
+                        資料處理相關系統: KSA、IPM 系統
+                        <!--  設定參數 -> 獲取資料庫資料，演算法計算、繪製圖形 -> 顯示資料、圖形 -->
+                        <ul>
+                            <li>C#/ASP.NET Core MVC/React/繪圖元件</li>
+                            <li>設計排隊機制來非同步處理資料</li>
+                            <li>分階段紀錄訊息，以便重現資料取得、演算與取得例外資訊</li>
+                            <li>系統規劃、整合</li>
+                            <li>介面實作</li>
                         </ul>
                     </div>
                     <div>
                         維護 AVM 系統
                         <ul>
-                            <li>轉換語言為 C# 並部分重構</li>
-                            <li>合併被分別開發的子專案</li>
-                            <li>系統維護</li>
                             <li>C#/WPF/C++/WinForm</li>
-                        </ul>
-                    </div>
-                    <div>
-                        資料處理相關系統、KSA 系統
-                        <ul>
-                            <li>資料運算排程</li>
-                            <li>系統規劃、整合</li>
-                            <li>介面實作</li>
-                            <li>C#/ASP.NET Core MVC/React</li>
+                            <li>C++ 轉換語言為 C# 並部分重構</li>
+                            <li>合併被分別開發的子專案</li>
+                            <li>自製欄位自動生成元件，依照物件屬性自動生成欄位來簡化開發</li>
+                            <li>系統維護</li>
                         </ul>
                     </div>
                     <div>
                         其他專案
                         <ul>
-                            <li>系統基本設計</li>
-                            <li>系統整合</li>
-                            <li>介面實作</li>
-                            <li>C#</li>
+                            <li>C#/ASP.NET Core MVC/MySQL</li>
                             <li>WPF/WinForm</li>
-                            <li>ASP.NET Core MVC</li>
                             <li>React/Vue/KendoUI</li>
+                            <li>繪圖元件</li>
+                            <li>自製簡易 cache 避免客戶端高頻率刷新 占用資料庫資源</li>
+                            <li>自製部分繪圖元件功能，再利用 WebSocket 即時刷新當下資訊</li>
+                            <li>系統基本設計、整合</li>
+                            <li>介面實作</li>
                         </ul>
                     </div>
                 </div>
@@ -190,7 +215,7 @@
                 <div class="exp-content">
                     <ul>
                         <li>拷貝機開發</li>
-                        <li>使用 AngularJS 製作官網</li>
+                        <li>AngularJS 製作官網</li>
                     </ul>
                 </div>
             </div>
@@ -203,12 +228,12 @@
                 <div class="exp-content">
                     <ul>
                         <li>2012 南區大專院校程式設計競賽(CPE) 進階組 佳作</li>
-                        <li>2012 臺南大學 第五屆 南大資工程式競賽 第一名</li>
+                        <li>2012 臺南大學 南大資工程式競賽 第一名</li>
                         <li>2012 第16次ITSA線上程式設計大賽 績優團隊</li>
                         <li>2012 第17次ITSA線上程式設計大賽 績優團隊</li>
                         <li>2012 第19次ITSA線上程式設計大賽 績優團隊</li>
-                        <li>2011 臺南大學 100學年度 程式設計比賽 第一名</li>
-                        <li>2010 臺南大學 99學年度第一學期 程式設計比賽 第二名</li>
+                        <li>2011 臺南大學 程式設計比賽 第一名</li>
+                        <li>2010 臺南大學 程式設計比賽 第二名</li>
                     </ul>
                 </div>
             </div>
