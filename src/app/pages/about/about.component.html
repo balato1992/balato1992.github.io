@@ -15,6 +15,8 @@
                     會去<b>溝通、理解需求</b>，若有人渴了，不一定要掘井，或許當下給他一瓶礦泉水，就能滿足需求。
                 </div>
 
+
+                <!--
                 <div>
                     另有程式圖表與小工具，歡迎連結觀看
                     <ul>
@@ -22,8 +24,6 @@
                         <li><a routerLink="/investment">Tools</a></li>
                     </ul>
                 </div>
-
-                <!--
                 <ul>
                     <li><a href="https://github.com/balato1992/">Github</a></li>
                     <li><a href="https://www.cakeresume.com/me/HongChengWei/">CakeResume</a></li>
@@ -158,7 +158,9 @@
                         <ul>
                             <li>.NET Core/React/MySQL</li>
                             <li>公司資料/產品/收據 記錄</li>
-                            <li><a routerLink="/preview">Preview Link</a></li>
+                            <li>
+                                <a href="javascript:void(0);" (click)="openDialog('product-and-receipt.png')">Preview Picture</a>
+                            </li>
                         </ul>
                     </div>
                     <div>
@@ -175,6 +177,7 @@
                             <li>Angular/swimlane/mathjax-angular</li>
                             <li>DCA versus VA 簡易比較均價與均值差異</li>
                             <li>Kelly criterion 凱利公式</li>
+                            <li><a routerLink="/investment">Tools Link</a></li>
                         </ul>
                     </div>
                     <div>
@@ -183,7 +186,9 @@
                             <li>Angular/Express/Mongodb</li>
                             <li>使用 Google OAuth 登入，並以 mongodb 記錄帳號資訊與筆記資料</li>
                             <li>可用 Google Speech API 播放筆記</li>
-                            <li><a routerLink="/preview">Preview Link</a></li>
+                            <li>
+                                <a href="javascript:void(0);" (click)="openDialog('vocabulary.png')">Preview Picture</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -267,7 +272,7 @@
                 </div>
                 <div class="exp-content">
                     <ul>
-                        <li>2012 南區大專院校程式設計競賽(CPE) 進階組 佳作</li>
+                        <li>2012 南區大專院校程式設計競賽 進階組 佳作</li>
                         <li>2012 臺南大學 南大資工程式競賽 第一名</li>
                         <li>2012 第16次ITSA線上程式設計大賽 績優團隊</li>
                         <li>2012 第17次ITSA線上程式設計大賽 績優團隊</li>

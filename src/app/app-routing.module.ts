@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes, UrlSegment } from '@angular/router';
 
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-import { ToolsPageComponent } from './pages/tools-page/tools-page.component';
 import { LINK_INFOS } from './global-variables';
 import { LinkInfo } from './classes/LinkInfo';
 
@@ -51,7 +50,6 @@ const routes: Routes = [
   },
   ...flatRoutes,
   { path: '', redirectTo: '/about', pathMatch: 'full' },
-  { path: 'tools', component: ToolsPageComponent, data: { animation: getRouteStateName() } },
   { path: '404', component: PageNotFoundComponent, data: { animation: getRouteStateName() } },
   { path: '**', redirectTo: '/404' }
 ];

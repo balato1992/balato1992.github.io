@@ -1,0 +1,9 @@
+<mat-select (selectionChange)="onSelectionChange($event.value)" [value]="displayLanguage" style="width: 50px; height: 100%;">
+    <mat-select-trigger>
+        <div>
+            <mat-icon>language</mat-icon>
+            <div>{{ i18nLang }}</div>
+        </div>
+    </mat-select-trigger>
+    <mat-option *ngFor="let language of languageList" [value]="language.code">{{ language.name }}</mat-option>
+</mat-select>

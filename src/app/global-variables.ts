@@ -12,7 +12,7 @@ import { DiagramPageComponent } from './pages/diagram-page/diagram-page.componen
 export const LINK_INFOS: LinkInfo[] = [
   new LinkInfo("About", 'about', AboutComponent),
   new LinkInfo("Diagram", 'diagram', DiagramPageComponent),
-  new LinkInfo("Side projects preview", 'preview', PreviewPageComponent),
+  //new LinkInfo("Preview", 'preview', PreviewPageComponent),
   new LinkInfo("Tools", 'investment', InvestmentVersusPageComponent, [
     new LinkInfo("DCA versus VA", 'investment/versus', InvestmentVersusPageComponent), //Dollar Cost Averaging, Value Averaging
     new LinkInfo("Custom DCA versus VA", 'investment/custom', InvestmentPageComponent),
