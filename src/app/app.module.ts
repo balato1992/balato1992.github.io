@@ -9,6 +9,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -36,13 +37,13 @@ import { InvestmentVersusPageComponent } from './pages/investment-versus-page/in
 import { PreviewPageComponent } from './pages/preview-page/preview-page.component';
 import { SidenavLinkItemComponent } from './pages/sidenav-link-item/sidenav-link-item.component';
 import { KellyCriterionPageComponent } from './pages/kelly-criterion-page/kelly-criterion-page.component';
-import { ToolsPageComponent } from './pages/tools-page/tools-page.component';
 import { DiagramPageComponent } from './pages/diagram-page/diagram-page.component';
 
 import { InvestmentResultComponent } from './components/investment-result/investment-result.component';
 import { InvestmentResultAndSourceComponent } from './components/investment-result-and-source/investment-result-and-source.component';
 import { TflNgxChartsLineChartDirective } from './directives/tfl-ngx-charts-line-chart.directive';
 import { AboutComponent } from './pages/about/about.component';
+import { LanguageComponent } from './components/language/language.component';
 
 @NgModule({
   declarations: [
@@ -56,9 +57,9 @@ import { AboutComponent } from './pages/about/about.component';
     SidenavLinkItemComponent,
     InvestmentResultAndSourceComponent,
     KellyCriterionPageComponent,
-    ToolsPageComponent,
     DiagramPageComponent,
     AboutComponent,
+    LanguageComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,6 +73,7 @@ import { AboutComponent } from './pages/about/about.component';
     MatButtonModule,
     MatCardModule,
     MatDatepickerModule,
+    MatDialogModule,
     MatDividerModule,
     MatFormFieldModule,
     MatIconModule,

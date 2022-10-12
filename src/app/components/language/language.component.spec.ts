@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ToolsPageComponent } from './tools-page.component';
+import { LanguageComponent } from './language.component';
 
-describe('ToolsPageComponent', () => {
-  let component: ToolsPageComponent;
-  let fixture: ComponentFixture<ToolsPageComponent>;
+describe('LanguageComponent', () => {
+  let component: LanguageComponent;
+  let fixture: ComponentFixture<LanguageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ToolsPageComponent ]
+      declarations: [ LanguageComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ToolsPageComponent);
+    fixture = TestBed.createComponent(LanguageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
