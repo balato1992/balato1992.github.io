@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-kelly-criterion-page',
@@ -9,17 +9,17 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from
 })
 export class KellyCriterionPageComponent implements OnInit {
 
-  kcForm: FormGroup = this.fb.group({
+  kcForm: UntypedFormGroup = this.fb.group({
     probability: [50, [Validators.required, Validators.max(100), Validators.min(0)]],
     proportion: [2, [Validators.required, Validators.max(1000000), Validators.min(0)]],
   });
   get probability(): AbstractControl { return this.kcForm.get('probability')!; }
   get proportion(): AbstractControl { return this.kcForm.get('proportion')!; }
-  currentBankroll: FormControl = new FormControl(300, Validators.required);
+  currentBankroll: UntypedFormControl = new UntypedFormControl(300, Validators.required);
 
   result: { fraction: number, fractionJax: string } | undefined = undefined;
 
-  constructor(private fb: FormBuilder, private decimalPipe: DecimalPipe) { }
+  constructor(private fb: UntypedFormBuilder, private decimalPipe: DecimalPipe) { }
 
   ngOnInit(): void { }
 

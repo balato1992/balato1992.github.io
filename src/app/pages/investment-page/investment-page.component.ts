@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatStep, MatStepper } from '@angular/material/stepper';
 
 import { NgxChartSeriesRow } from 'src/shared-class/NgxChartSeriesRow';
@@ -19,11 +19,11 @@ export class InvestmentPageComponent implements OnInit {
   @ViewChild('step1') private step1!: MatStep;
   @ViewChild('step2') private step2!: MatStep;
 
-  step1FormGroup!: FormGroup;
+  step1FormGroup!: UntypedFormGroup;
   step1Submitted: boolean = false;
   get step1SelectedIndex() { return this.step1FormGroup.get('step1SelectedIndex')!; }
 
-  s2FormGroup!: FormGroup;
+  s2FormGroup!: UntypedFormGroup;
   s2Submitted: boolean = false;
   get s2StartDate() { return this.s2FormGroup.get('s2StartDate')!; }
   get s2EndDate() { return this.s2FormGroup.get('s2EndDate')!; }
@@ -35,7 +35,7 @@ export class InvestmentPageComponent implements OnInit {
   step3Data!: NgxChartDatum;
 
   constructor(
-    private _formBuilder: FormBuilder,
+    private _formBuilder: UntypedFormBuilder,
     private dss: DataSourceService,
     private dps: DataProcessingService) { }
 
